@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerController : MonoBehaviour {
 
     public LayerMask hitMask;
 
-    const float collisionBuffer = .015f;
+    const float collisionBuffer = .1f;
     public int horizontalRayCount = 3;
     public int verticalRayCount = 3;
 
