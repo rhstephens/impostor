@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : NetworkBehaviour {
 
-    public Transform target;
-	
-	// Update is called once per frame
-	void Update () {
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
-	}
+    Camera playerCamera;
+
+    void Start() {
+        if (!isLocalPlayer) return;
+        if (Camera.main) Camera.main.enabled = false;
+        playerCamera = GetComponentInChildren<Camera>();
+        playerCamera.enabled = true;
+    }
 }

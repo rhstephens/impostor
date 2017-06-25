@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
     public void Rotate(Vector3 velocity) {
         // Rotate player
         float angle = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
-        transform.GetChild(0).rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);
+        GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);
     }
 
     void HorizontalCollisions(ref Vector3 velocity) {

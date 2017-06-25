@@ -1,39 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerController))]
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : NetworkBehaviour {
 
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
 
     Vector3 velocity;
-    float xAcceleration = 0.1f;
-    float yAcceleration = 0.1f;
-    float xSmoothing;
-    float ySmoothing;
-    float rotationSmoothing = 0.1f;
 
     PlayerController con;
 
 	// Use this for initialization
-	void Start () {
+	public override void OnStartLocalPlayer() {
         con = GetComponent<PlayerController>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+	void Update() {
         Vector3 prevPos = transform.position;
+
+        // Check direction and return if none has been pressed
+        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (direction.Equals(Vector2.zero)) return;
 
         // Calculate movement speeds
         float speed = calculateSpeed();
-        float xTarget = direction.x * speed;
-        float yTarget = direction.y * speed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, xTarget, ref xSmoothing, xAcceleration);
-        velocity.y = Mathf.SmoothDamp(velocity.y, yTarget, ref ySmoothing, yAcceleration);
 
+        velocity.x = direction.x * speed;
+        velocity.y = direction.y * speed;
+        
         con.Rotate(velocity * Time.deltaTime);
         con.Move(velocity * Time.deltaTime);
     }
