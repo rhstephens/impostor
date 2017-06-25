@@ -10,39 +10,50 @@ public class PlayerNetworkSync : NetworkBehaviour {
 
     [SyncVar]
     Vector3 syncPos;
+    [SyncVar]
+    Quaternion syncRot;
 
     [SerializeField]
     Behaviour[] disabledComponents;
 
+    Transform sprite;
+
     void Start() {
+        // Disable duplicate components used by other clients
         if (!isLocalPlayer) {
             foreach (Behaviour component in disabledComponents) {
                 component.enabled = false;
             }
         }
+
+        sprite = GetComponentInChildren<SpriteRenderer>().transform;
     }
 
     void FixedUpdate() {
-        TransmitMyPosition();
-        SmoothPositions();
+        TransmitMyPlayer();
+        SmoothPlayers();
     }
 
     // This gets called on all NON LOCAL clients to smooth out their movement
-    void SmoothPositions() {
+    void SmoothPlayers() {
         if (!isLocalPlayer) {
             transform.position = Vector3.Lerp(transform.position, syncPos, smoothFactor * Time.deltaTime);
+            sprite.rotation = syncRot;
         }
     }
 
     [Command]
-    void CmdServerPosition(Vector3 pos) {
+    void CmdServerPosition(Vector3 pos, Quaternion rot) {
         syncPos = pos;
+        syncRot = rot;
     }
 
     [ClientCallback]
-    void TransmitMyPosition() {
-        // Only transmit position if we are the local player
-        if (isLocalPlayer) CmdServerPosition(transform.position);
+    void TransmitMyPlayer() {
+        // Only transmit info if we are the local player
+        if (isLocalPlayer) {
+            CmdServerPosition(transform.position, sprite.rotation);
+        }
     }
 	
 }
