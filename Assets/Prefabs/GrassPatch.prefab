@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4854255036669922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrassPatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

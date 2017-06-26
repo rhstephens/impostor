@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour {
 
     float horizontalRaySpacing;
     float verticalRaySpacing;
+    bool gunDrawn = false;
 
     BoxCollider2D col;
     RaycastOrigins raycastOrigins;
+    SpriteRenderer childSprite;
 
     // Applies movement after checking for collisions
     public void Move(Vector3 velocity) {
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour {
         // Rotate player
         float angle = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
         GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);
+    }
+
+    // Draw (or holster) gun
+    public void DrawGun() {
+        gunDrawn = !gunDrawn;
     }
 
     void HorizontalCollisions(ref Vector3 velocity) {
@@ -76,6 +83,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         col = GetComponent<BoxCollider2D>();
+        childSprite = GetComponentInChildren<SpriteRenderer>();
 
         // Calculate the spacing of each ray
         Bounds bounds = col.bounds;

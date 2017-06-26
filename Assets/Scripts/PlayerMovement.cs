@@ -25,6 +25,11 @@ public class PlayerMovement : NetworkBehaviour {
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (direction.Equals(Vector2.zero)) return;
 
+        // Draw gun (with right-click)
+        if (Input.GetMouseButtonUp(1)) {
+            con.DrawGun();
+        }
+
         // Calculate movement speeds
         float speed = calculateSpeed();
 
