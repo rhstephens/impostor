@@ -4,6 +4,7 @@
 public class PlayerController : MonoBehaviour {
 
     public LayerMask hitMask;
+    public bool gunDrawn = false;
 
     const float collisionBuffer = .1f;
     public int horizontalRayCount = 3;
@@ -11,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 
     float horizontalRaySpacing;
     float verticalRaySpacing;
-    bool gunDrawn = false;
 
     BoxCollider2D col;
     RaycastOrigins raycastOrigins;
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 
     // Applies movement after checking for collisions
     public void Move(Vector3 velocity) {
+        if (velocity.Equals(Vector3.zero)) return;
+
         // Update raycasts only when we need to move character
         UpdateRaycastOrigins();
 
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 
     // Applies a rotation from the previous location point
     public void Rotate(Vector3 velocity) {
+        if (velocity.Equals(Vector3.zero)) return;
         // Rotate player
         float angle = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
         GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);

@@ -21,14 +21,13 @@ public class PlayerMovement : NetworkBehaviour {
 	void Update() {
         Vector3 prevPos = transform.position;
 
-        // Check direction and return if none has been pressed
-        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (direction.Equals(Vector2.zero)) return;
-
         // Draw gun (with right-click)
         if (Input.GetMouseButtonUp(1)) {
             con.DrawGun();
         }
+
+        // Check direction and return if none has been pressed
+        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         // Calculate movement speeds
         float speed = calculateSpeed();
