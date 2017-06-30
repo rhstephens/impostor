@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerController))]
-public class PlayerMovement : NetworkBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
@@ -14,7 +13,7 @@ public class PlayerMovement : NetworkBehaviour {
     PlayerController con;
 
 	// Use this for initialization
-	public override void OnStartLocalPlayer() {
+	void Start() {
         con = GetComponent<PlayerController>();
 	}
 	

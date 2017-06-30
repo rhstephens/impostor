@@ -17,6 +17,7 @@ public class PlayerNetworkSync : NetworkBehaviour {
     Behaviour[] disabledComponents;
 
     Transform sprite;
+    PlayerController con;
 
     void Start() {
         // Disable duplicate components used by other clients
@@ -26,6 +27,7 @@ public class PlayerNetworkSync : NetworkBehaviour {
             }
         }
 
+        con = GetComponent<PlayerController>();
         sprite = GetComponentInChildren<SpriteRenderer>().transform;
     }
 
@@ -42,6 +44,7 @@ public class PlayerNetworkSync : NetworkBehaviour {
         }
     }
 
+    // Send each local player's position + rotation
     [Command]
     void CmdServerPosition(Vector3 pos, Quaternion rot) {
         syncPos = pos;
@@ -55,5 +58,4 @@ public class PlayerNetworkSync : NetworkBehaviour {
             CmdServerPosition(transform.position, sprite.rotation);
         }
     }
-	
 }

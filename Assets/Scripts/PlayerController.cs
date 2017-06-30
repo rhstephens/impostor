@@ -4,11 +4,12 @@
 public class PlayerController : MonoBehaviour {
 
     public LayerMask hitMask;
-    public bool gunDrawn = false;
+    public bool gunDrawn;
+    public static string GUN_DRAWN_PARAM = "gunDrawn";
 
     const float collisionBuffer = .1f;
-    public int horizontalRayCount = 3;
-    public int verticalRayCount = 3;
+    int horizontalRayCount = 3;
+    int verticalRayCount = 3;
 
     float horizontalRaySpacing;
     float verticalRaySpacing;
@@ -16,6 +17,20 @@ public class PlayerController : MonoBehaviour {
     BoxCollider2D col;
     RaycastOrigins raycastOrigins;
     SpriteRenderer childSprite;
+    Animator anim;
+
+    void Start() {
+        col = GetComponent<BoxCollider2D>();
+        childSprite = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+
+        // Calculate the spacing of each ray
+        Bounds bounds = col.bounds;
+        bounds.Expand(collisionBuffer * -2);
+
+        horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
+        verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
+    }
 
     // Applies movement after checking for collisions
     public void Move(Vector3 velocity) {
@@ -46,6 +61,7 @@ public class PlayerController : MonoBehaviour {
     // Draw (or holster) gun
     public void DrawGun() {
         gunDrawn = !gunDrawn;
+        anim.SetBool(GUN_DRAWN_PARAM, gunDrawn);
     }
 
     void HorizontalCollisions(ref Vector3 velocity) {
@@ -84,18 +100,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void Start() {
-        col = GetComponent<BoxCollider2D>();
-        childSprite = GetComponentInChildren<SpriteRenderer>();
-
-        // Calculate the spacing of each ray
-        Bounds bounds = col.bounds;
-        bounds.Expand(collisionBuffer * -2);
-
-        horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
-        verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
-    }
-
     void UpdateRaycastOrigins() {
         Bounds bounds = col.bounds;
         bounds.Expand(collisionBuffer * -2);
@@ -115,7 +119,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     struct RaycastOrigins {
-        public Vector2 topLeft, topRight;
-        public Vector2 bottomLeft, bottomRight;
+        public Vector2 topLeft, topRight, bottomLeft, bottomRight;
     }
 }
