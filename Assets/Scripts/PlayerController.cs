@@ -4,8 +4,6 @@
 public class PlayerController : MonoBehaviour {
 
     public LayerMask hitMask;
-    public bool gunDrawn;
-    public static string GUN_DRAWN_PARAM = "gunDrawn";
 
     const float collisionBuffer = .1f;
     int horizontalRayCount = 3;
@@ -56,12 +54,6 @@ public class PlayerController : MonoBehaviour {
         // Rotate player
         float angle = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
         GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);
-    }
-
-    // Draw (or holster) gun
-    public void DrawGun() {
-        gunDrawn = !gunDrawn;
-        anim.SetBool(GUN_DRAWN_PARAM, gunDrawn);
     }
 
     void HorizontalCollisions(ref Vector3 velocity) {

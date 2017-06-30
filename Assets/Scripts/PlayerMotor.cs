@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMotor : MonoBehaviour {
 
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
@@ -19,11 +19,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void Update() {
         Vector3 prevPos = transform.position;
-
-        // Draw gun (with right-click)
-        if (Input.GetMouseButtonUp(1)) {
-            con.DrawGun();
-        }
 
         // Check direction and return if none has been pressed
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
