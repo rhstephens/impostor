@@ -2,7 +2,7 @@
 using UnityEngine.Networking;
 
 /// <summary>
-/// This script will control how the local client interacts with other player's clients through the server
+/// This script will control how the local client interacts with other player's position/rotation through the server
 /// </summary>
 public class PlayerNetworkSync : NetworkBehaviour {
 

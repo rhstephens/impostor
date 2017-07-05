@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     float horizontalRaySpacing;
     float verticalRaySpacing;
+    public bool gunDrawn = false;
 
     BoxCollider2D col;
     RaycastOrigins raycastOrigins;

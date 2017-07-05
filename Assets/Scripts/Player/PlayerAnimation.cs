@@ -16,6 +16,7 @@ public class PlayerAnimation : NetworkBehaviour {
 
     void Start () {
         anim = GetComponent<Animator>();
+        con = GetComponent<PlayerController>();
     }
 
     void Update() {
@@ -35,6 +36,7 @@ public class PlayerAnimation : NetworkBehaviour {
             return;
         }
         draw = !draw;
+        con.gunDrawn = draw;
         CmdDrawGun(draw);
     }
 
