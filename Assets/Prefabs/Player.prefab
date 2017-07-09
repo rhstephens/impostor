@@ -339,7 +339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f3d6d161f524047a1d51dfdbceadf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toHit:
+    serializedVersion: 2
+    m_Bits: 2048
   gunLocation: {fileID: 1403440657108254}
+  cam: {fileID: 20004831488381662}
 --- !u!114 &114753049351579556
 MonoBehaviour:
   m_ObjectHideFlags: 1

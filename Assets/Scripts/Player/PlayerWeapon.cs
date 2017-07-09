@@ -3,6 +3,8 @@ using UnityEngine.Networking;
 
 public class PlayerWeapon : NetworkBehaviour {
 
+    public LayerMask toHit;
+
     IWeapon weapon;
     PlayerController con;
     RaycastHit2D hit;
@@ -32,7 +34,9 @@ public class PlayerWeapon : NetworkBehaviour {
     }
 
     void FireShot() {
-        hit = Physics2D.Raycast(gunLocation.transform.position, cam.ScreenToWorldPoint(Input.mousePosition), weapon.Range);
+        Vector2 direction = cam.ScreenToWorldPoint(Input.mousePosition) - gunLocation.transform.position;
+        Debug.DrawRay(gunLocation.transform.position, direction, Color.red);
+        hit = Physics2D.Raycast(gunLocation.transform.position, direction, weapon.Range, toHit);
         if (hit) {
             Debug.Log("Hit something: " + hit.transform.name);
 

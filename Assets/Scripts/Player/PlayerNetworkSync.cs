@@ -25,6 +25,9 @@ public class PlayerNetworkSync : NetworkBehaviour {
             foreach (Behaviour component in disabledComponents) {
                 component.enabled = false;
             }
+
+            // set this player to be an 'Enemy'
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
         }
 
         con = GetComponent<PlayerController>();

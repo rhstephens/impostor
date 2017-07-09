@@ -57,6 +57,11 @@ public class PlayerController : MonoBehaviour {
         GetComponentInChildren<SpriteRenderer>().transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.back);
     }
 
+    // Rotate player to face mouse position
+    public void LookAtMouse() {
+
+    }
+
     void HorizontalCollisions(ref Vector3 velocity) {
         float directionX = Mathf.Sign(velocity.x);
         float rayLength = Mathf.Abs(velocity.x) + collisionBuffer;

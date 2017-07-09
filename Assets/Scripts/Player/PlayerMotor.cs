@@ -29,7 +29,13 @@ public class PlayerMotor : MonoBehaviour {
         velocity.x = direction.x * speed;
         velocity.y = direction.y * speed;
         
-        con.Rotate(velocity * Time.deltaTime);
+        // Rotate and Move player accordingly
+        if (con.gunDrawn) {
+            Vector3 lookPos = GetComponentInChildren<Camera>().ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            con.Rotate(lookPos);
+        } else {
+            con.Rotate(velocity * Time.deltaTime);
+        }
         con.Move(velocity * Time.deltaTime);
     }
 
