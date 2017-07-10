@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour {
         childSprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
+        // Find all current player's and register this player in the GameManager
+        GameManager.Instance.PopulatePlayerList();
+        GameManager.Instance.RegisterPlayer(gameObject);
+
         // Calculate the spacing of each ray
         Bounds bounds = col.bounds;
         bounds.Expand(collisionBuffer * -2);

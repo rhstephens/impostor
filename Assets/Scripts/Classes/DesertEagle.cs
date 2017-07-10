@@ -1,11 +1,16 @@
 ﻿
 public class DesertEagle : IWeapon {
 
-    static float DAMAGE_DEAGLE = 100f;
+    static int DAMAGE_DEAGLE = 100;
+    static int AMMO_DEAGLE = 1;
     static float RANGE_DEAGLE = 10f;
 
-    public float Damage {
+    public int Damage {
         get { return DAMAGE_DEAGLE; }
+    }
+
+    public int MaxAmmo {
+        get { return AMMO_DEAGLE; }
     }
 
     public float Range 

@@ -21,13 +21,14 @@ GameObject:
   - component: {fileID: 4993067058422478}
   - component: {fileID: 61236390924076948}
   - component: {fileID: 95113708435521100}
+  - component: {fileID: 114074256352749390}
   - component: {fileID: 114071497732199936}
   - component: {fileID: 114097149850037384}
   - component: {fileID: 114401121387959382}
   - component: {fileID: 114464953334681226}
   - component: {fileID: 114753049351579556}
   - component: {fileID: 114652230663220032}
-  - component: {fileID: 114074256352749390}
+  - component: {fileID: 114655446779452010}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -341,9 +342,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toHit:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 3072
   gunLocation: {fileID: 1403440657108254}
   cam: {fileID: 20004831488381662}
+--- !u!114 &114655446779452010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340431451758558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76657bf5b6a5d649a70d10ee373e337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114753049351579556
 MonoBehaviour:
   m_ObjectHideFlags: 1

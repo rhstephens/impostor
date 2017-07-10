@@ -38,9 +38,25 @@ public class PlayerWeapon : NetworkBehaviour {
         Debug.DrawRay(gunLocation.transform.position, direction, Color.red);
         hit = Physics2D.Raycast(gunLocation.transform.position, direction, weapon.Range, toHit);
         if (hit) {
-            Debug.Log("Hit something: " + hit.transform.name);
+            int id = hit.transform.gameObject.GetInstanceID();
 
+            if (hit.transform.tag == "Player") {
+                Debug.Log(hit.transform.gameObject.GetComponent<NetworkInstanceId>().ToString());
+                GameManager.Instance.RegisterPlayer(hit.transform.gameObject);
+                CmdShootPlayer(id, weapon.Damage);
+            }
         }
 
+    }
+
+    [Command]
+    void CmdShootPlayer(int id, int dmg) {
+        // Find the unique player that was hit.
+        GameObject hit = GameManager.Instance.FindPlayer(id);
+
+        PlayerHealth hp = hit.GetComponent<PlayerHealth>();
+        if (hp) {
+            hp.InflictDamage(dmg);
+        }
     }
 }

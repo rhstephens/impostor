@@ -3,7 +3,8 @@
 /// </summary>
 public interface IWeapon {
 
-    float Damage { get; }
+    int Damage { get; }
+    int MaxAmmo { get; }
     float Range { get; }
 
     void SoundBlast();
