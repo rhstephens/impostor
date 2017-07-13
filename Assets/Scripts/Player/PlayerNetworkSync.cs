@@ -46,6 +46,9 @@ public class PlayerNetworkSync : NetworkBehaviour {
     void Update() {
         TransmitMyPlayer();
         SmoothPlayers();
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            Destroy(gameObject);
+        }
     }
 
     // This gets called on all NON LOCAL clients to smooth out their movement
