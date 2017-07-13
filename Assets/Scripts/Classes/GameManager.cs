@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager> {
     Dictionary<int, GameObject> _playerList = new Dictionary<int, GameObject>();
 
     public void Start() {
-        
+
     }
 
 	public IWeapon GetPlayerWeapon() {
@@ -25,16 +25,6 @@ public class GameManager : Singleton<GameManager> {
         Destroy(go);
     }
 
-    // Add instanceId -> Player mapping for quick GameObject finds
-    public void RegisterPlayer(GameObject go) {
-        int id = go.GetInstanceID();
-        if (_playerList.ContainsKey(id)) {
-            _playerList[id] = go;
-        } else {
-            _playerList.Add(id, go);
-        }
-    }
-
     // Find player by unique InstanceID
     public GameObject FindPlayer(int id) {
         if (!_playerList.ContainsKey(id)) {
@@ -43,7 +33,17 @@ public class GameManager : Singleton<GameManager> {
         return _playerList[id];
     }
 
-    // At startup, we must first find all Players that already existed
+    // Add instanceId -> Player mapping for quick GameObject search
+    void RegisterPlayer(GameObject go) {
+        int id = go.GetInstanceID();
+        if (_playerList.ContainsKey(id)) {
+            _playerList[id] = go;
+        } else {
+            _playerList.Add(id, go);
+        }
+    }
+
+    // Find all current Players in the game and add to player list
     public void PopulatePlayerList() {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
             RegisterPlayer(go);

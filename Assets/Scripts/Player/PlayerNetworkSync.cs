@@ -26,15 +26,24 @@ public class PlayerNetworkSync : NetworkBehaviour {
                 component.enabled = false;
             }
 
-            // set this player to be an 'Enemy'
-            gameObject.layer = LayerMask.NameToLayer("Enemy");
         }
 
         con = GetComponent<PlayerController>();
         sprite = GetComponentInChildren<SpriteRenderer>().transform;
     }
 
-    void FixedUpdate() {
+    public override void OnStartClient() {
+        base.OnStartClient();
+        Debug.Log("Registering Player");
+        GameManager.Instance.PopulatePlayerList();
+    }
+
+    public override void OnStartLocalPlayer() {
+        base.OnStartLocalPlayer();
+        GameManager.Instance.PopulatePlayerList();
+    }
+
+    void Update() {
         TransmitMyPlayer();
         SmoothPlayers();
     }
