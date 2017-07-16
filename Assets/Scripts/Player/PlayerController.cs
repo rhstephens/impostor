@@ -16,12 +16,10 @@ public class PlayerController : MonoBehaviour {
     BoxCollider2D col;
     RaycastOrigins raycastOrigins;
     SpriteRenderer childSprite;
-    Animator anim;
 
     void Start() {
         col = GetComponent<BoxCollider2D>();
         childSprite = GetComponentInChildren<SpriteRenderer>();
-        anim = GetComponent<Animator>();
 
         // Calculate the spacing of each ray
         Bounds bounds = col.bounds;
