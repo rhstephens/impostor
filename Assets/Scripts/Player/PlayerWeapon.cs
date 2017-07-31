@@ -44,10 +44,19 @@ public class PlayerWeapon : NetworkBehaviour {
                 DebugConsole.Instance.Log("You hit yourself, doofus");
                 return;
             }
+
             if (hit.transform.tag == "Player") {
                 PlayerHealth hp = hit.transform.GetComponent<PlayerHealth>();
                 hp.InflictDamage(weapon.Damage);
             }
+
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
+                BaseDestructible hitObj = hit.transform.GetComponent<BaseDestructible>();
+                if (hitObj) {
+                    hitObj.OnHit(weapon.Damage);
+                }
+            }
+
         }
     }
 }
