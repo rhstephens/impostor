@@ -7,6 +7,7 @@ public interface IWeapon {
     int MaxAmmo { get; }
     float Range { get; }
 
-    void SoundBlast();
-    void MuzzleFlash();
+    // Attempt a shot with this weapon. Must return true if shot successfully, false otherwise.
+    bool Shoot();
+    void Reload();
 }

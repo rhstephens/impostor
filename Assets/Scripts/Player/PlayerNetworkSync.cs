@@ -25,7 +25,6 @@ public class PlayerNetworkSync : NetworkBehaviour {
             foreach (Behaviour component in disabledComponents) {
                 component.enabled = false;
             }
-
         }
 
         con = GetComponent<PlayerController>();
@@ -41,6 +40,7 @@ public class PlayerNetworkSync : NetworkBehaviour {
     public override void OnStartLocalPlayer() {
         base.OnStartLocalPlayer();
         GameManager.Instance.PopulatePlayerList();
+        GameManager.Instance.SetLocalPlayer(gameObject.GetInstanceID());
     }
 
     void Update() {

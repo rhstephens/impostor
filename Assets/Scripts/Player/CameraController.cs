@@ -7,7 +7,9 @@ public class CameraController : NetworkBehaviour {
 
     void Start() {
         if (!isLocalPlayer) return;
-        if (Camera.main) Camera.main.enabled = false;
+        if (Camera.main) {
+            Camera.main.gameObject.SetActive(false);
+        }
         playerCamera = GetComponentInChildren<Camera>();
         playerCamera.enabled = true;
     }

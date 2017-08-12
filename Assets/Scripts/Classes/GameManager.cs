@@ -7,10 +7,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager> {
 
     Dictionary<int, GameObject> _playerList = new Dictionary<int, GameObject>();
-
-    public void Start() {
-
-    }
+    int _playerId = -1;
 
 	public IWeapon GetPlayerWeapon() {
         //TODO: Make this smarter... much smarter
@@ -48,5 +45,14 @@ public class GameManager : Singleton<GameManager> {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
             RegisterPlayer(go);
         }
+    }
+
+    // Register this client's local player for quick access to the game object
+    public void SetLocalPlayer(int id) {
+        _playerId = id;
+    }
+
+    public GameObject GetLocalPlayer() {
+        return FindPlayer(_playerId);
     }
 }

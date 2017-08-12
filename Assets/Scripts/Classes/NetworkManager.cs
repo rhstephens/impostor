@@ -9,6 +9,8 @@ using UnityEngine.Networking;
 /// </summary>
 public class NetworkManager : NetworkBehaviour {
 
+    UniqueDictionary<int, AudioClip> audioSources = new UniqueDictionary<int, AudioClip>();
+
     protected static NetworkManager instance;
 
     // Returns the instance of this singleton
@@ -25,5 +27,16 @@ public class NetworkManager : NetworkBehaviour {
 
             return instance;
         }
+    }
+
+    [Command]
+    public void CmdPlaySound(string name) {
+        // RpcPlayAudioSource(clip, pos);
+    }
+
+    // Creates the audio source on all clients
+    [ClientRpc]
+    private void RpcPlayAudioSource(int src, Vector3 pos) {
+
     }
 }

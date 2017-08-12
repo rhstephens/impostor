@@ -13,9 +13,17 @@ public class Window : BaseDestructible {
 
     [ClientRpc]
     void RpcBreakWindow() {
+        // Create window debris
         GameObject shards = Instantiate(debris);
         shards.transform.position = transform.position;
+        shards.transform.Rotate(0, 0, Random.Range(0, 360));
+        
         NetworkServer.Spawn(shards);
         Destroy(gameObject);
+    }
+
+    [Command]
+    void CmdRegisterAudio() {
+
     }
 }

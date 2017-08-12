@@ -6,6 +6,7 @@ public class PlayerWeapon : NetworkBehaviour {
     public LayerMask toHit;
 
     IWeapon weapon;
+    AudioSource2D audio;
     PlayerController con;
     RaycastHit2D hit;
 
@@ -17,6 +18,7 @@ public class PlayerWeapon : NetworkBehaviour {
     void Start() {
         weapon = GameManager.Instance.GetPlayerWeapon();
         con = GetComponent<PlayerController>();
+        audio = GetComponent<AudioSource2D>();
     }
 
     void Update() {
@@ -38,6 +40,12 @@ public class PlayerWeapon : NetworkBehaviour {
         Vector2 direction = clickPos - gunLocation.transform.position;
         Debug.DrawRay(gunLocation.transform.position, direction, Color.red);
         hit = Physics2D.Raycast(gunLocation.transform.position, direction, weapon.Range, toHit);
+
+        if (!weapon.Shoot()) {
+            EmptyMagSound();
+            return;
+        }
+
         if (hit) {
             // Make sure we can't hit ourself
             if (hit.transform.gameObject.Equals(gameObject)) {
@@ -58,5 +66,19 @@ public class PlayerWeapon : NetworkBehaviour {
             }
 
         }
+    }
+
+    // Played when a shot is successfully fired
+    void SoundBlast() {
+        audio.Play();
+    }
+
+    // Played when a shot is fired with no bullets left
+    void EmptyMagSound() {
+
+    }
+
+    void MuzzleFlash() {
+        //TODO: implement custom muzzle flash
     }
 }
