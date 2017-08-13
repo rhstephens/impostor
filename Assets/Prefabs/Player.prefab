@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114753049351579556}
   - component: {fileID: 114652230663220032}
   - component: {fileID: 114655446779452010}
+  - component: {fileID: 114608096964074110}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -60,6 +61,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4410218280589622}
   - component: {fileID: 20004831488381662}
+  - component: {fileID: 81805734377537968}
+  - component: {fileID: 92541656588003656}
+  - component: {fileID: 124309894940375442}
   m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
@@ -216,7 +220,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.515625, y: 0.671875}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.32, y: 1.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -225,6 +229,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.515625, y: 0.671875}
   m_EdgeRadius: 0
+--- !u!81 &81805734377537968
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481993154173382}
+  m_Enabled: 1
+--- !u!92 &92541656588003656
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481993154173382}
+  m_Enabled: 1
 --- !u!95 &95113708435521100
 Animator:
   serializedVersion: 3
@@ -329,6 +347,21 @@ MonoBehaviour:
   - {fileID: 20004831488381662}
   - {fileID: 114071497732199936}
   - {fileID: 114097149850037384}
+--- !u!114 &114608096964074110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340431451758558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad542156cc0e9d4ab09087e7ad59b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  playOnAwake: 0
+  minDistance: 3
+  maxDistance: 20
 --- !u!114 &114652230663220032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +400,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ab8eadee3ef3f4a87e6e0a125f62b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!124 &124309894940375442
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481993154173382}
+  m_Enabled: 1
 --- !u!212 &212125353151259992
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ public class PlayerWeapon : NetworkBehaviour {
     public LayerMask toHit;
 
     IWeapon weapon;
-    AudioSource2D audio;
+    AudioSource2D audioSource;
     PlayerController con;
     RaycastHit2D hit;
 
@@ -18,7 +18,8 @@ public class PlayerWeapon : NetworkBehaviour {
     void Start() {
         weapon = GameManager.Instance.GetPlayerWeapon();
         con = GetComponent<PlayerController>();
-        audio = GetComponent<AudioSource2D>();
+        audioSource = GetComponent<AudioSource2D>();
+        audioSource.audioClip = weapon.GetGunAudio();
     }
 
     void Update() {
@@ -46,6 +47,9 @@ public class PlayerWeapon : NetworkBehaviour {
             return;
         }
 
+        SoundBlast();
+        MuzzleFlash();
+
         if (hit) {
             // Make sure we can't hit ourself
             if (hit.transform.gameObject.Equals(gameObject)) {
@@ -70,7 +74,7 @@ public class PlayerWeapon : NetworkBehaviour {
 
     // Played when a shot is successfully fired
     void SoundBlast() {
-        audio.Play();
+        audioSource.Play();
     }
 
     // Played when a shot is fired with no bullets left

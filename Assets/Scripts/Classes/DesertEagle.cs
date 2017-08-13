@@ -5,6 +5,7 @@ public class DesertEagle : IWeapon {
     static int DAMAGE_DEAGLE = 100;
     static int AMMO_DEAGLE = 10;
     static float RANGE_DEAGLE = 100f;
+    static string AUDIO_PATH = "Audio/deagle_shoot";
 
     int ammo = AMMO_DEAGLE;
 
@@ -32,5 +33,9 @@ public class DesertEagle : IWeapon {
 
     public void Reload() {
 
+    }
+
+    public AudioClip GetGunAudio() {
+        return Resources.Load(AUDIO_PATH) as AudioClip;
     }
 }

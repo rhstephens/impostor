@@ -9,10 +9,10 @@ public class AudioSource2D : MonoBehaviour {
     public bool playOnAwake = true;
 
     // Anything as close as this distance can be heard at full volume
-    public int minDistance = 3;
+    public int minDistance = 1;
 
     // The max distance in which this audio source can no longer be heard
-    public int maxDistance = 20;
+    public int maxDistance = 24;
 
     AudioSource _src;
 
@@ -62,7 +62,7 @@ public class AudioSource2D : MonoBehaviour {
             return 1f;
         }
 
-        float ratio = 5f / (((Mathf.Pow(distance, 2)) - (minDistance ^ 2)) + 1f);
+        float ratio = 10f / (Mathf.Pow(distance - minDistance, 2) + 1f);
         return Mathf.Clamp01(ratio);
     }
 }
