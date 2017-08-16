@@ -3,6 +3,9 @@ using UnityEngine.Networking;
 
 public class PlayerWeapon : NetworkBehaviour {
 
+    static string EMPTY_GUN_PATH = "Audio/empty_gun";
+    static string RELOAD_GUN_PATH = "Audio/reload_gun";
+
     public LayerMask toHit;
 
     IWeapon weapon;
@@ -79,7 +82,7 @@ public class PlayerWeapon : NetworkBehaviour {
 
     // Played when a shot is fired with no bullets left
     void EmptyMagSound() {
-
+        audioSource.PlayOverride(Resources.Load(EMPTY_GUN_PATH) as AudioClip);
     }
 
     void MuzzleFlash() {

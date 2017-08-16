@@ -1,0 +1,14 @@
+Machine Learning Model for AI:
+  Feature Set:
+	- Position on map (x, y)
+	- Time (ms? 10ms? every frame?)
+	- Time since last direction change?
+	- Previous frame's input vector
+    THINK OF DISTANCE + DIRECTION
+	- Distance from center
+	- Distance from border (any border? North,South,East,West?)
+	- Distance from nearest obstacle
+	- Distance from nearest player/ai
+  Output:
+	- Vector of player input 
+	- [1 1 0 1] which maps to WASD

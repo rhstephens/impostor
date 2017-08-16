@@ -46,6 +46,14 @@ public class AudioSource2D : MonoBehaviour {
         _src.PlayOneShot(audioClip, scale);
     }
 
+    // Play given audio clip, overriding the default one on this component. Does not affect future Sounds.
+    public void PlayOverride(AudioClip clip) {
+        AudioClip old = audioClip;
+        audioClip = clip;
+        Play();
+        audioClip = old;
+    }
+
     // Returns the distance between the LocalPlayer's audio listener and this audio source
     float GetListenerDistance() {
         GameObject player = GameManager.Instance.GetLocalPlayer();
