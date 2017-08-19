@@ -1,10 +1,12 @@
 Machine Learning Model for AI:
   Feature Set:
 	- Position on map (x, y)
-	- Time (ms? 10ms? every frame?)
+	- Time (ms? 10ms? every frame?)  // I don't think we need this. Time elapsed should be independent of whether the AI moves or not
 	- Time since last direction change?
+	- Time while in motion / stationary?
 	- Previous frame's input vector
-    THINK OF DISTANCE + DIRECTION
+	- Is player stationary?
+    THINK OF DISTANCE + DIRECTION (distance of player - distance of object)
 	- Distance from center
 	- Distance from border (any border? North,South,East,West?)
 	- Distance from nearest obstacle
