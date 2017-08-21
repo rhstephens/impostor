@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61851575319217094}
   - component: {fileID: 114948630820558840}
   - component: {fileID: 114437873097082150}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,3 +152,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

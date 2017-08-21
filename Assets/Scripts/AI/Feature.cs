@@ -26,7 +26,7 @@ public class Feature : MonoBehaviour {
 	// Time since last direction change
 	public int TimeSinceLastDirection { get; set; }
 
-	public static Feature GeneratePlayerFeatures(GameObject go) {
+	public static Feature GeneratePlayerFeatures(Transform playerTransform) {
 		Feature f = new Feature ();
 
 

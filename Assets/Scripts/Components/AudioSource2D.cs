@@ -47,11 +47,11 @@ public class AudioSource2D : MonoBehaviour {
     }
 
     // Play given audio clip, overriding the default one on this component. Does not affect future Sounds.
-    public void PlayOverride(AudioClip clip) {
-        AudioClip old = audioClip;
-        audioClip = clip;
+	public void PlayOverride(string clip) {
+		_src.clip = Resources.Load(clip) as AudioClip;
+		Debug.Log (_src.clip);
         Play();
-        audioClip = old;
+		_src.clip = audioClip;
     }
 
     // Returns the distance between the LocalPlayer's audio listener and this audio source

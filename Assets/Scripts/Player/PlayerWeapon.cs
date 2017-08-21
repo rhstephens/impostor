@@ -3,8 +3,8 @@ using UnityEngine.Networking;
 
 public class PlayerWeapon : NetworkBehaviour {
 
-    static string EMPTY_GUN_PATH = "Audio/empty_gun";
-    static string RELOAD_GUN_PATH = "Audio/reload_gun";
+    static string EMPTY_GUN_PATH = "Audio/gun_empty";
+    static string RELOAD_GUN_PATH = "Audio/gun_reload";
 
     public LayerMask toHit;
 
@@ -65,7 +65,7 @@ public class PlayerWeapon : NetworkBehaviour {
                 hp.InflictDamage(weapon.Damage);
             }
 
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall")) {
                 BaseDestructible hitObj = hit.transform.GetComponent<BaseDestructible>();
                 if (hitObj) {
                     hitObj.OnHit(weapon.Damage);
@@ -82,7 +82,7 @@ public class PlayerWeapon : NetworkBehaviour {
 
     // Played when a shot is fired with no bullets left
     void EmptyMagSound() {
-        audioSource.PlayOverride(Resources.Load(EMPTY_GUN_PATH) as AudioClip);
+        audioSource.PlayOverride(EMPTY_GUN_PATH);
     }
 
     void MuzzleFlash() {

@@ -4,7 +4,7 @@ Machine Learning Model for AI:
 	- Time (ms? 10ms? every frame?)  // I don't think we need this. Time elapsed should be independent of whether the AI moves or not
 	- Time since last direction change?
 	- Time while in motion / stationary?
-	- Previous frame's input vector
+	- Previous frame's input vector  // I don't think we need this. The player's input gets inferred by other features
 	- Is player stationary?
     THINK OF DISTANCE + DIRECTION (distance of player - distance of object)
 	- Distance from center
@@ -13,4 +13,16 @@ Machine Learning Model for AI:
 	- Distance from nearest player/ai
   Output:
 	- Vector of player input 
-	- [1 1 0 1] which maps to WASD
+	- [0 1 0 1] which maps to WASD
+	
+	
+//TODO:
+	[] Finish map
+	[] Artificial Intelligence
+		[] Complete class to calculate Features
+		[] Begin gathering training set data
+		[] Train a suitable model
+		[] Integrate model with AI prefab.
+		[] Sync AI prefab on the network
+	[] Main Menu
+	
