@@ -18,11 +18,19 @@ Machine Learning Model for AI:
 	
 //TODO:
 	[] Finish map
+		[X] Warehouse at east side
+		[X] Shrubbery
+		[X] Cars and fence along west side
+		[] River
+		[] Explosion and fire effects on vehicles
 	[] Artificial Intelligence
-		[] Complete class to calculate Features
+		[X] Complete class to calculate Features
+		[] Export Features to CSV
+		[] Store CSV on AWS S3
 		[] Begin gathering training set data
 		[] Train a suitable model
 		[] Integrate model with AI prefab.
 		[] Sync AI prefab on the network
+		[] Add AI section to readme
 	[] Main Menu
 	

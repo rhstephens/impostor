@@ -8,6 +8,14 @@ public class PlayerMotor : MonoBehaviour {
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
 
+	//TODO: Remove this once model has been trained successfully
+	FeatureExporter fe = new FeatureExporter();
+	float featureRate = 10f / 10f;
+	public float sinceMotion = 0;
+	public float sinceDirection = 0;
+	public bool inMotion = false;
+	Vector2 prevDirection;
+
     Vector3 velocity;
 
     PlayerController con;
@@ -15,6 +23,7 @@ public class PlayerMotor : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
         con = GetComponent<PlayerController>();
+		InvokeRepeating("GenerateFeature", 1f, featureRate);
 	}
 	
 	void Update() {
@@ -22,6 +31,24 @@ public class PlayerMotor : MonoBehaviour {
 
         // Check direction and return if none has been pressed
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+		//TODO: Remove this once model has been trained successfully
+		sinceMotion += Time.deltaTime;
+		sinceDirection += Time.deltaTime;
+
+		if (inMotion && (direction == Vector2.zero)) {
+			sinceMotion = 0;
+		} else if (!inMotion && (direction != Vector2.zero)) {
+			sinceMotion = 0;
+		}
+
+		inMotion = (direction != Vector2.zero);
+
+		if (prevDirection != direction) {
+			sinceDirection = 0;
+		}
+		prevDirection = direction;
+
 
         // Calculate movement speeds
         float speed = calculateSpeed();
@@ -46,4 +73,18 @@ public class PlayerMotor : MonoBehaviour {
 
         return walkSpeed;
     }
+
+	void GenerateFeature() {
+		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection);
+		Debug.Log(f.OpponentX);
+		Debug.Log(f.OpponentY);
+		Debug.Log(f.InMotion);
+		Debug.Log(f.TimeSinceStartOrStop);
+		Debug.Log(f.TimeSinceLastDirection);
+		fe.AddFeature(f);
+	}
+
+	void OnApplicationQuit() {
+		fe.ExportFeatures();
+	}
 }

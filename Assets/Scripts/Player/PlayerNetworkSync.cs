@@ -41,6 +41,9 @@ public class PlayerNetworkSync : NetworkBehaviour {
         base.OnStartLocalPlayer();
         GameManager.Instance.PopulatePlayerList();
         GameManager.Instance.SetLocalPlayer(gameObject.GetInstanceID());
+
+		//TODO: Remove once done training dataset
+		GameManager.Instance.PopulateAIList();
     }
 
     void Update() {
