@@ -273,6 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   runSpeed: 6
+  sinceMotion: 0
+  sinceDirection: 0
+  inMotion: 0
 --- !u!114 &114074256352749390
 MonoBehaviour:
   m_ObjectHideFlags: 1

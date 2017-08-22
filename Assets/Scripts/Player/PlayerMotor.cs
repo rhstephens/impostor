@@ -10,11 +10,12 @@ public class PlayerMotor : MonoBehaviour {
 
 	//TODO: Remove this once model has been trained successfully
 	FeatureExporter fe = new FeatureExporter();
-	float featureRate = 10f / 10f;
+	float featureRate = 3f / 10f;
 	public float sinceMotion = 0;
 	public float sinceDirection = 0;
 	public bool inMotion = false;
 	Vector2 prevDirection;
+	Vector2 curDirection;
 
     Vector3 velocity;
 
@@ -33,6 +34,7 @@ public class PlayerMotor : MonoBehaviour {
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
 		//TODO: Remove this once model has been trained successfully
+		curDirection = direction;
 		sinceMotion += Time.deltaTime;
 		sinceDirection += Time.deltaTime;
 
@@ -75,12 +77,7 @@ public class PlayerMotor : MonoBehaviour {
     }
 
 	void GenerateFeature() {
-		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection);
-		Debug.Log(f.OpponentX);
-		Debug.Log(f.OpponentY);
-		Debug.Log(f.InMotion);
-		Debug.Log(f.TimeSinceStartOrStop);
-		Debug.Log(f.TimeSinceLastDirection);
+		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, curDirection);
 		fe.AddFeature(f);
 	}
 

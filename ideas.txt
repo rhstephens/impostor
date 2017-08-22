@@ -25,7 +25,7 @@ Machine Learning Model for AI:
 		[] Explosion and fire effects on vehicles
 	[] Artificial Intelligence
 		[X] Complete class to calculate Features
-		[] Export Features to CSV
+		[X] Export Features to CSV
 		[] Store CSV on AWS S3
 		[] Begin gathering training set data
 		[] Train a suitable model

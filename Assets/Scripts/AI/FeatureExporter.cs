@@ -31,6 +31,7 @@ public class FeatureExporter {
 		using (StreamWriter sw = new StreamWriter(FileName())) {
 			CsvWriter csv = new CsvWriter(sw);
 			csv.Configuration.RegisterClassMap<FeatureMap>();
+			csv.Configuration.HasHeaderRecord = false;
 			csv.WriteRecords(_features);
 		}
 	}
