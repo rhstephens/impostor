@@ -10,7 +10,7 @@ public class PlayerMotor : MonoBehaviour {
 
 	//TODO: Remove this once model has been trained successfully
 	FeatureExporter fe = new FeatureExporter();
-	float featureRate = 3f / 10f;
+	float featureRate = 1f / 5f;
 	public float sinceMotion = 0;
 	public float sinceDirection = 0;
 	public bool inMotion = false;
@@ -78,6 +78,7 @@ public class PlayerMotor : MonoBehaviour {
 
 	void GenerateFeature() {
 		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, curDirection);
+		Debug.Log(f.W);
 		fe.AddFeature(f);
 	}
 
