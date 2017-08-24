@@ -9,7 +9,7 @@ public class PlayerMotor : MonoBehaviour {
     public float runSpeed = 6f;
 
 	//TODO: Remove this once model has been trained successfully
-	FeatureExporter fe = new FeatureExporter();
+	FeatureExporter fe;
 	float featureRate = 1f / 5f;
 	public float sinceMotion = 0;
 	public float sinceDirection = 0;
@@ -25,10 +25,15 @@ public class PlayerMotor : MonoBehaviour {
 	void Start() {
         con = GetComponent<PlayerController>();
 		InvokeRepeating("GenerateFeature", 1f, featureRate);
+		fe = new FeatureExporter(GameObject.Find("AWS").GetComponent<AWSClient>());
 	}
 	
 	void Update() {
         Vector3 prevPos = transform.position;
+
+		if (Input.GetKeyDown(KeyCode.M)) {
+			fe.ExportFeatures();
+		}
 
         // Check direction and return if none has been pressed
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -78,11 +83,6 @@ public class PlayerMotor : MonoBehaviour {
 
 	void GenerateFeature() {
 		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, curDirection);
-		Debug.Log(f.W);
 		fe.AddFeature(f);
-	}
-
-	void OnApplicationQuit() {
-		fe.ExportFeatures();
 	}
 }

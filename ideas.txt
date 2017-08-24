@@ -26,9 +26,11 @@ Machine Learning Model for AI:
 	[] Artificial Intelligence
 		[X] Complete class to calculate Features
 		[X] Export Features to CSV
-		[] Store CSV on AWS S3
+		[X] Store CSV on AWS S3
 		[] Begin gathering training set data
-		[] Train a suitable model
+		[] Train a first generation logistic regression model
+		[] Look for improvements in the model
+		[] Final model
 		[] Integrate model with AI prefab.
 		[] Sync AI prefab on the network
 		[] Add AI section to readme
