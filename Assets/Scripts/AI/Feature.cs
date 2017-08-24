@@ -49,8 +49,8 @@ public class Feature {
 			f.OpponentY = 0;
 		} else {
 			Vector3 oppPos = opp.transform.position;
-			f.OpponentX = Mathf.Abs(oppPos.x - playerPos.x);
-			f.OpponentY = Mathf.Abs(oppPos.y - playerPos.y);
+			f.OpponentX = oppPos.x - playerPos.x;
+			f.OpponentY = oppPos.y - playerPos.y;
 		}
 
 		// Time, Direction and Motion (supplied by the AI Controller)
