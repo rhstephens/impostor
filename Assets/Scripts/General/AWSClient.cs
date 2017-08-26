@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 using Amazon;
 using Amazon.CognitoIdentity;
+using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -48,22 +51,11 @@ public class AWSClient : MonoBehaviour {
 	//
 
 	// Get object from S3 with given bucket/file name. It is the CALLER'S responsibility to close the stream
-	public StreamReader GetObject(string bucket, string key) {
-		StreamReader sr = null;
-		Client.GetObjectAsync(bucket, key, (cb) => {
-			if (cb.Exception != null) {
-				Debug.Log(cb.Exception);
-				return;
-			}
-			GetObjectResponse resp = cb.Response;
-			if (resp.ResponseStream != null) {
-				sr = new StreamReader(resp.ResponseStream);
-			}
-		});
-		return sr;
+	public void GetObject(string bucket, string key, AmazonServiceCallback<GetObjectRequest, GetObjectResponse> callback) {
+		Client.GetObjectAsync(bucket, key, callback);
 	}
 
-	// Post object into S3 with given bucket/file name.
+	// Post object into S3 with given bucket/file name
 	public void PostObject(string bucket, string key, string tmpFile) {
 		FileStream stream = new FileStream(tmpFile, FileMode.Open, FileAccess.Read, FileShare.Read);
 
@@ -74,6 +66,7 @@ public class AWSClient : MonoBehaviour {
 			CannedACL = S3CannedACL.Private,
 			Region = _region
 		};
+
 		Client.PostObjectAsync(req, (cb) => {
 			if (cb.Exception != null) {
 				Debug.Log(cb.Exception);
@@ -84,5 +77,15 @@ public class AWSClient : MonoBehaviour {
 			Debug.Log("Successful save: " + key);
 			File.Delete(tmpFile);
 		});
+	}
+
+	// Returns a list of keys corresponding to all objects in the given bucket with the given prefix
+	public void ListObjects(string bucket, string prefix, AmazonServiceCallback<ListObjectsRequest, ListObjectsResponse> callback) {
+		ListObjectsRequest req = new ListObjectsRequest() {
+			BucketName = bucket,
+			Prefix = prefix
+		};
+				
+		Client.ListObjectsAsync(req, callback);
 	}
 }

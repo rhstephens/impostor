@@ -15,11 +15,10 @@ public class FeatureExporter {
 	const string FILE_PREFIX = "features_";
 
 	List<Feature> _features = new List<Feature>();
-	CsvWriter writer;
 	AWSClient _client;
 
 	public FeatureExporter(AWSClient client) {
-		_client = client;
+		_client = GameManager.Instance.Client;
 	}
 
 	public void AddFeature(Feature f) {

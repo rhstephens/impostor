@@ -27,7 +27,7 @@ Machine Learning Model for AI:
 		[X] Complete class to calculate Features
 		[X] Export Features to CSV
 		[X] Store CSV on AWS S3
-		[] Begin gathering training set data
+		[X] Begin gathering training set data
 		[] Train a first generation logistic regression model
 		[] Look for improvements in the model
 		[] Final model
@@ -35,4 +35,6 @@ Machine Learning Model for AI:
 		[] Sync AI prefab on the network
 		[] Add AI section to readme
 	[] Main Menu
+		[] Start local game
+		[] Return to menu after game is finished
 	

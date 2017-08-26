@@ -6,30 +6,36 @@
 public class Feature {
 
 	// X, Y position on the map
-	public float PosX { get; set; }
-	public float PosY { get; set; }
+	public double PosX { get; set; }
+	public double PosY { get; set; }
 
 	// Distance from center
-	public float CenterDist { get; set; }
+	public double CenterDist { get; set; }
 
 	// Distance from nearest Player/AI
-	public float OpponentX { get; set; }
-	public float OpponentY { get; set; }
+	public double OpponentX { get; set; }
+	public double OpponentY { get; set; }
 
 	// Is AI in motion?
 	public int InMotion { get; set; }
 
 	// Time in seconds while stationary/in motion
-	public float TimeSinceStartOrStop { get; set; }
+	public double TimeSinceStartOrStop { get; set; }
 
 	// Time in seconds since last direction change
-	public float TimeSinceLastDirection { get; set; }
+	public double TimeSinceLastDirection { get; set; }
 
 	// True y output (see README.md)
 	public int W { get; set; }
 	public int A { get; set; }
 	public int S { get; set; }
 	public int D { get; set; }
+
+	public double[] Xvals() {
+		return new double[] {
+			PosX, PosY, CenterDist, OpponentX, OpponentY, InMotion, TimeSinceStartOrStop, TimeSinceLastDirection
+		};
+	}
 
 	public static Feature GeneratePlayerFeatures(GameObject player, bool inMotion, float lastStop, float lastDirection, Vector2 direction) {
 		Feature f = new Feature();
