@@ -28,7 +28,7 @@ Machine Learning Model for AI:
 		[X] Export Features to CSV
 		[X] Store CSV on AWS S3
 		[X] Begin gathering training set data
-		[] Train a first generation logistic regression model
+		[X] Train a first generation logistic regression model
 		[] Look for improvements in the model
 		[] Final model
 		[] Integrate model with AI prefab.

@@ -11,7 +11,6 @@ using UnityEngine;
 public class FeatureExporter {
 
 	const string DATE_FORMAT = "yyyyMMdd-HHmm";
-	const string BUCKET_NAME = "codetroopa-imposter";
 	const string FILE_PREFIX = "features_";
 
 	List<Feature> _features = new List<Feature>();
@@ -35,7 +34,7 @@ public class FeatureExporter {
 			csv.WriteRecords(_features);
 		}
 
-		_client.PostObject(BUCKET_NAME, S3Key(), FileName());
+		_client.PostObject(AWSClient.BUCKET_NAME, S3Key(), FileName());
 	}
 
 	string S3Key() {

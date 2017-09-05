@@ -1,6 +1,8 @@
 ﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 using Amazon;
 using Amazon.Runtime;
@@ -8,7 +10,9 @@ using Amazon.S3;
 using Amazon.S3.Model;
 
 using Accord.MachineLearning;
+using Accord.Math.Optimization;
 using Accord.Statistics.Models.Regression;
+using Accord.Statistics.Models.Regression.Fitting;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +22,8 @@ using UnityEngine.UI;
 /// </summary>
 public class Train : MonoBehaviour {
 
-	const string BUCKET_NAME = "codetroopa-imposter";
+	const string DATE_FORMAT = "yyyyMMdd-HHmm";
+	const string MODEL_PREFIX = "model_";
 	const string TSET_PREFIX = "training-sets";
 
 	public Button GetTrainingSetBtn = null;
@@ -45,23 +50,93 @@ public class Train : MonoBehaviour {
 	// Go through each training set segment and collect all features.
 	void LatestTrainingSet() {
 		Debug.Log("Begin downloading training set...");
-		_client.ListObjects(BUCKET_NAME, TSET_PREFIX, ListObjectsHandler);
+		_client.ListObjects(AWSClient.BUCKET_NAME, TSET_PREFIX, ListObjectsHandler);
 	}
 
 	// LET'S DO THIS
 	void TrainModel() {
+		Debug.Log("Begin training model...");
+		float beginTime = Time.time;
 		int m = features.Count;
 		double[][] X = new double[m][];
+		bool[] yW = new bool[m];
+		bool[] yA = new bool[m];
+		bool[] yS = new bool[m];
+		bool[] yD = new bool[m];
 
-		// Extract X values from training set
+		// Extract X and y values from training set
 		for (int i = 0; i < m; i++) {
 			X[i] = features[i].Xvals();
+			yW[i] = features[i].W == 1;
+			yA[i] = features[i].A == 1;
+			yS[i] = features[i].S == 1;
+			yD[i] = features[i].D == 1;
 		}
 
-		// Extract y values from training set
+		// Calculate mean and standard deviation from X values then apply it to transform to Z-Score
+		double[] featureSums = new double[m];
+		double[] sqDiffSums = new double[m];
+		double[] mean = new double[m];
+		double[] std = new double[m];
 
+		// mean
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < Feature.NUM_FEATURES; j++) {
+				featureSums[j] += X[i][j];
+			}
+		}
+		for (int i = 0; i < featureSums.Length; i++) {
+			mean[i] = featureSums[i] / m;
+		}
 
-		LogisticRegression model;
+		// std
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < Feature.NUM_FEATURES; j++) {
+				sqDiffSums[j] += Math.Pow(X[i][j] - mean[j], 2);
+			}
+		}
+		for (int i = 0; i < featureSums.Length; i++) {
+			std[i] = Math.Sqrt(sqDiffSums[i] / (m - 1));
+		}
+
+		// Z-score the input data
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < Feature.NUM_FEATURES; j++) {
+				X[i][j] = (X[i][j] - mean[j]) / std[j];
+			}
+		}
+
+		Debug.Log("Training logistic regression model with " + features.Count.ToString() + " examples");
+		var learner = new IterativeReweightedLeastSquares<LogisticRegression>() {
+			Tolerance = 1e-4,
+			MaxIterations = 100,
+			Regularization = 0
+		};
+		LogisticRegression modelW = learner.Learn(X, yW);
+		LogisticRegression modelA = learner.Learn(X, yA);
+		LogisticRegression modelS = learner.Learn(X, yS);
+		LogisticRegression modelD = learner.Learn(X, yD);
+
+		Debug.Log("Training model took " + (Time.time - beginTime).ToString() + " seconds.");
+		AIModel model = new AIModel() {
+			wModel = modelW,
+			aModel = modelA,
+			sModel = modelS,
+			dModel = modelD,
+
+			mean = mean,
+			std = std
+		};
+
+		// serialize model 
+		string filename = ModelFileName();
+		FileStream stream = new FileStream(filename, FileMode.Create);
+		BinaryFormatter formatter = new BinaryFormatter();
+		formatter.Serialize(stream, model);
+		stream.Dispose();
+
+		// store on s3
+		_client.PostObject(AWSClient.BUCKET_NAME, "models/" + filename, filename);
 	}
 
 	// A callback that handles a ListObjectsAsync request. Stores each object key.
@@ -77,7 +152,7 @@ public class Train : MonoBehaviour {
 
 		Debug.Log("Found Objects. Going through each...");
 		foreach (string key in keys) {
-			_client.GetObject(BUCKET_NAME, key, GetObjectHandler);
+			_client.GetObject(AWSClient.BUCKET_NAME, key, GetObjectHandler);
 		}
 	}
 
@@ -96,6 +171,9 @@ public class Train : MonoBehaviour {
 				features.AddRange(csv.GetRecords<Feature>());
 				Debug.Log("Feature total: " + features.Count.ToString());
 			}
-		}
+		}}
+
+	string ModelFileName() {
+		return MODEL_PREFIX + DateTime.Now.ToString(DATE_FORMAT) + ".dat";
 	}
 }

@@ -10,8 +10,18 @@ public class GameManager : Singleton<GameManager> {
 	Dictionary<int, GameObject> _playerList = new Dictionary<int, GameObject>();
 	Dictionary<int, GameObject> _aiList = new Dictionary<int, GameObject>();
 	AWSClient _client = null;
+	AIModel model;
 
     int _playerId = -1;
+
+	public AWSClient Client {
+		get {
+			if (_client == null) {
+				_client = GameObject.Find("AWS").GetComponent<AWSClient>();
+			}
+			return _client;
+		}
+	}
 
 	public void Start() {
 		PopulateAIList();
@@ -107,15 +117,6 @@ public class GameManager : Singleton<GameManager> {
 			}
 		}
 		return closestPlayer;
-	}
-
-	public AWSClient Client {
-		get {
-			if (_client == null) {
-				_client = GameObject.Find("AWS").GetComponent<AWSClient>();
-			}
-			return _client;
-		}
 	}
 
     // Register this client's local player for quick access to the game object

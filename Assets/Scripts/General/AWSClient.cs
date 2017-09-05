@@ -15,6 +15,7 @@ using Amazon.S3.Model;
 /// </summary>
 public class AWSClient : MonoBehaviour {
 
+	public const string BUCKET_NAME = "codetroopa-imposter";
 	const string COGNITO_POOL_ID = "us-east-2:7d3d9a09-7eef-4d62-a5cf-ffda2a75491c";
 
 	RegionEndpoint _region = RegionEndpoint.USEast2;
@@ -39,7 +40,7 @@ public class AWSClient : MonoBehaviour {
 		}
 	}
 
-	void Start () {
+	void Awake () {
 		UnityInitializer.AttachToGameObject(gameObject);
 
 		// Workaround for https://github.com/aws/aws-sdk-net/issues/696

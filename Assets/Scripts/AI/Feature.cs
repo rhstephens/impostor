@@ -5,6 +5,8 @@
 /// </summary>
 public class Feature {
 
+	public const int NUM_FEATURES = 8;
+
 	// X, Y position on the map
 	public double PosX { get; set; }
 	public double PosY { get; set; }
@@ -37,7 +39,13 @@ public class Feature {
 		};
 	}
 
-	public static Feature GeneratePlayerFeatures(GameObject player, bool inMotion, float lastStop, float lastDirection, Vector2 direction) {
+	public bool[] Yvals() {
+		return new bool[] {
+			W == 1, A == 1, S == 1, D == 1
+		};
+	}
+
+	public static Feature GeneratePlayerFeatures(GameObject player, bool inMotion, float lastStop, float lastDirection, Vector2 yDirection) {
 		Feature f = new Feature();
 		Vector3 playerPos = player.transform.position;
 
@@ -65,10 +73,10 @@ public class Feature {
 		f.TimeSinceLastDirection = lastDirection;
 
 		// y outputs
-		f.W = direction.y == 1 ? 1 : 0;
-		f.A = direction.x == -1 ? 1 : 0;
-		f.S = direction.y == -1 ? 1 : 0;
-		f.D = direction.x == 1 ? 1 : 0;
+		f.W = yDirection.y == 1 ? 1 : 0;
+		f.A = yDirection.x == -1 ? 1 : 0;
+		f.S = yDirection.y == -1 ? 1 : 0;
+		f.D = yDirection.x == 1 ? 1 : 0;
 
 		return f;
 	}
