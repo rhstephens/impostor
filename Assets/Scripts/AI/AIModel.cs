@@ -28,12 +28,16 @@ public class AIModel {
 	public Vector2 PredictDirection(Feature x) {
 		double[] Xvals = x.Xvals();
 
+		// convert to Z Score
+		for (int i = 0; i < Feature.NUM_FEATURES; i++) {
+			Xvals[i] = (Xvals[i] - mean[i]) / std[i];
+		}
+
 		int up = Convert.ToInt32(wModel.Decide(Xvals));
 		int left = Convert.ToInt32(aModel.Decide(Xvals));
 		int down = Convert.ToInt32(sModel.Decide(Xvals));
 		int right = Convert.ToInt32(dModel.Decide(Xvals));
 
-		Debug.Log(up.ToString());
 		// This returns a direction vector corresponding to which direction(s) the model predicts
 		return new Vector2(right - left, up - down);
 	}

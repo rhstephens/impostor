@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 61122128390806462}
   - component: {fileID: 95163998815278996}
   - component: {fileID: 114773294159105730}
-  - component: {fileID: 114209301468868226}
   m_Layer: 8
   m_Name: AI
   m_TagString: AI
@@ -170,21 +169,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114209301468868226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255268143267234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0bde588c2d11746be4f45389de46c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  sinceMotion: 0
-  sinceDirection: 0
-  inMotion: 0
 --- !u!114 &114773294159105730
 MonoBehaviour:
   m_ObjectHideFlags: 1
