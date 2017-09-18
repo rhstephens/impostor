@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 public class GameManager : Singleton<GameManager> {
 
+	public Transform topLeft;
+	public Transform topRight;
+	public Transform bottomLeft;
+	public Transform bottomRight;
+
 	Dictionary<int, GameObject> _playerList = new Dictionary<int, GameObject>();
 	Dictionary<int, GameObject> _aiList = new Dictionary<int, GameObject>();
 	AWSClient _client = null;
@@ -127,4 +132,31 @@ public class GameManager : Singleton<GameManager> {
     public GameObject GetLocalPlayer() {
         return FindPlayer(_playerId);
     }
+
+	//////////////////////////////////////////////
+	// Input data for Convolutional Neural Network
+	//////////////////////////////////////////////
+
+	const int GRID_LENGTH = 200;
+	const int GRID_WIDTH = 200;
+
+	// Determines the grid location (x, y) of the given object position.
+	Vector2 gridLocation(Vector2 pos) {
+		
+	}
+
+	// Generates a matrix respresentation of the map. Grids that contain the current player are 1, the rest are 0.
+	public double[][] GeneratePlayerMatrix(GameObject player) {
+		
+	}
+
+	// Generates a matrix respresentation of the map. Grids that contain an obstacle are 1, the rest are 0.
+	public double[][] GenerateObstacleMatrix() {
+		
+	}
+
+	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.
+	public double[][] GenerateEnemyMatrix() {
+		
+	}
 }

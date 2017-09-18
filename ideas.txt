@@ -15,6 +15,11 @@ Machine Learning Model for AI:
 	- Vector of player input 
 	- [0 1 0 1] which maps to WASD
 	
+Convolutional Neural Network approach:
+	Input: 100x50x3 matrix.
+		- A 100x50 plane in the X/Y axis that either contains 0 or 1 in each spot, depending on whether an object is there or not.
+		- Stack 3 of these matrices together, where each one represents the locations of Obstacles/Player/Enemies
+	
 	
 //TODO:
 	[] Finish map
