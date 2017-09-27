@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager> {
 
 	Dictionary<int, GameObject> _playerList = new Dictionary<int, GameObject>();
 	Dictionary<int, GameObject> _aiList = new Dictionary<int, GameObject>();
+	Dictionary<int, GameObject> _obsList = new Dictionary<int, GameObject>();
 	AWSClient _client = null;
 	AIModel model;
 
@@ -87,6 +88,15 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
+	// Find all Obstacles in the game and add to obstacle list
+	public void PopulateObstacleList() {
+		foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject))) {
+			if (go.layer == LayerMask.NameToLayer("Obstacle") || go.layer == LayerMask.NameToLayer("Wall")) {
+				
+			}
+		}
+	}
+
 	// Finds and returns the closest player/AI to given a player/AI. Null if there is none
 	public GameObject FindClosestPlayer(GameObject player) {
 		GameObject closestPlayer = null;
@@ -138,25 +148,64 @@ public class GameManager : Singleton<GameManager> {
 	//////////////////////////////////////////////
 
 	const int GRID_LENGTH = 200;
-	const int GRID_WIDTH = 200;
+	const int GRID_WIDTH = 100;
 
 	// Determines the grid location (x, y) of the given object position.
-	Vector2 gridLocation(Vector2 pos) {
-		
+	public Vector2 gridLocation(Vector2 pos) {
+		// Length and Width of our grid. Could change dynamically, so we must calculate these each time
+		float len = Mathf.Abs(topRight.position.x - topLeft.position.x);
+		float wid = Mathf.Abs(topLeft.position.y - bottomLeft.position.y);
+
+		// How much space one grid unit takes up
+		float stepsizeX = len / GRID_LENGTH;
+		float stepsizeY = wid / GRID_WIDTH;
+
+		// Calculate the grid position and clamp it within bounds
+		int posX = Mathf.FloorToInt(Mathf.Abs(pos.x - topLeft.position.x) / stepsizeX);
+		int posY = Mathf.FloorToInt(Mathf.Abs(pos.y - topLeft.position.y) / stepsizeY);
+		posX = Mathf.Clamp(posX, 0, GRID_LENGTH - 1);
+		posY = Mathf.Clamp(posY, 0, GRID_WIDTH - 1);
+
+		return new Vector2(posX, posY);
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain the current player are 1, the rest are 0.
-	public double[][] GeneratePlayerMatrix(GameObject player) {
-		
+	public int[,] GeneratePlayerMatrix(GameObject player) {
+		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
+
+		// Let matrix be all zeroes except at the Player's position
+		Vector2 playerGridLoc = gridLocation(new Vector2(player.transform.position.x, player.transform.position.y));
+		matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+
+		return matrix;
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an obstacle are 1, the rest are 0.
-	public double[][] GenerateObstacleMatrix() {
-		
+	public int[,] GenerateObstacleMatrix() {
+		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
+
+		// Length and Width of our grid. Could change dynamically, so we must calculate these each time
+		float len = Mathf.Abs(topRight.position.x - topLeft.position.x);
+		float wid = Mathf.Abs(topLeft.position.y - bottomLeft.position.y);
+
+		// How much space one grid unit takes up
+		float stepsizeX = len / GRID_LENGTH;
+		float stepsizeY = wid / GRID_WIDTH;
+
+		// Fire a ray into every grid to detect an obstacle or wall
+		for (int i = 0; i < GRID_WIDTH; i++) {
+			for (int j = 0; j < GRID_LENGTH; j++) {
+				float xPos = topLeft.position.x + (i * stepsizeX) + stepsizeX;
+				Vector2 rayPoint = new Vector2(xPos, yPos);
+			}
+		}
+
+		return matrix;
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.
-	public double[][] GenerateEnemyMatrix() {
-		
+	public int[,] GenerateEnemyMatrix() {
+		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
+		return matrix;
 	}
 }

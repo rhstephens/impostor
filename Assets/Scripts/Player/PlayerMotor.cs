@@ -31,6 +31,7 @@ public class PlayerMotor : MonoBehaviour {
 	}
 	
 	void Update() {
+		GameManager.Instance.GeneratePlayerMatrix(gameObject);
         Vector3 prevPos = transform.position;
 
         // Check direction and return if none has been pressed
