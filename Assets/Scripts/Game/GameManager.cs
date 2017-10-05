@@ -195,8 +195,12 @@ public class GameManager : Singleton<GameManager> {
 		// Fire a ray into every grid to detect an obstacle or wall
 		for (int i = 0; i < GRID_WIDTH; i++) {
 			for (int j = 0; j < GRID_LENGTH; j++) {
-				float xPos = topLeft.position.x + (i * stepsizeX) + stepsizeX;
+				float xPos = topLeft.position.x + (j * stepsizeX) + (stepsizeX / 2);
+				float yPos = topLeft.position.y - ((i * stepsizeY) + (stepsizeY / 2));
 				Vector2 rayPoint = new Vector2(xPos, yPos);
+
+				RaycastHit2D hit = Physics2D.Raycast(rayPoint, Vector2.zero);
+
 			}
 		}
 
