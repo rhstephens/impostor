@@ -54,6 +54,10 @@ Knowing this, I can construct matrices that represent the map state to be used a
 | 0, 0, 0, 0, 0 | 1, 1, 0, 0, 0   | 0, 0, 0, 0, 0 | 
 | 0, 0, 0, 0, 0 | 1, 1, 1, 0, 0   | 0, 0, 0, 0, 0 | 
 
+In practice, the map covers around 60 units in width and 115 units in length. This is partitioned into a 100x200 grid to allow for more flexibility. Below is a visualization of the grid being used:
+
+![Map Grid](https://imgur.com/WHKrEE5.png)
+
 Now, we have some useful features that should be able to help our AI controller choose an appropriate direction for a given "map state". All that is left is to gather some Real Player data for supervised learning! 
 
 *To be continued...*
