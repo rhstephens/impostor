@@ -200,7 +200,12 @@ public class GameManager : Singleton<GameManager> {
 				Vector2 rayPoint = new Vector2(xPos, yPos);
 
 				RaycastHit2D hit = Physics2D.Raycast(rayPoint, Vector2.zero);
-
+				if (hit.collider) {
+					int mask = hit.collider.gameObject.layer;
+					if (mask == LayerMask.NameToLayer("Obstacle") || mask == LayerMask.NameToLayer("Wall")) {
+						matrix[i, j] = 1;
+					}
+				}
 			}
 		}
 
@@ -210,6 +215,22 @@ public class GameManager : Singleton<GameManager> {
 	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.
 	public int[,] GenerateEnemyMatrix() {
 		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
+		Vector2 playerGridLoc;
+
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
+			playerGridLoc = gridLocation(new Vector2(go.transform.position.x, go.transform.position.y));
+			matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+		}
+
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag("AI")) {
+			playerGridLoc = gridLocation(new Vector2(go.transform.position.x, go.transform.position.y));
+			matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+		}
+
+		// ensure local player isn't added to the enemy matrix
+		playerGridLoc = gridLocation(this.GetLocalPlayer().transform.position);
+		matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 0;
+
 		return matrix;
 	}
 }

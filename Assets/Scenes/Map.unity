@@ -6761,7 +6761,7 @@ Transform:
   m_PrefabInternal: {fileID: 1859525670}
   m_GameObject: {fileID: 250993032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.54, y: 38.92, z: 0.0625}
+  m_LocalPosition: {x: -16.84, y: 38.72, z: 0.0625}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26573,7 +26573,7 @@ GameObject:
   - component: {fileID: 1031022548}
   - component: {fileID: 1031022550}
   - component: {fileID: 1031022549}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DebugText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48329,11 +48329,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4562759624816920, guid: 5f4578a64a0d17340bfc431457edc115, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -22.54
+      value: -16.84
       objectReference: {fileID: 0}
     - target: {fileID: 4562759624816920, guid: 5f4578a64a0d17340bfc431457edc115, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 38.92
+      value: 38.72
       objectReference: {fileID: 0}
     - target: {fileID: 4562759624816920, guid: 5f4578a64a0d17340bfc431457edc115, type: 2}
       propertyPath: m_LocalPosition.z

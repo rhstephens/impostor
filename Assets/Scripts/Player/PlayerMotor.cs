@@ -26,8 +26,6 @@ public class PlayerMotor : MonoBehaviour {
 	void Start() {
         con = GetComponent<PlayerController>();
 		InvokeRepeating("GenerateFeature", 1f, featureRate);
-		fe = new FeatureExporter(GameObject.Find("AWS").GetComponent<AWSClient>());
-		trainer = new Train();
 	}
 	
 	void Update() {
@@ -64,7 +62,7 @@ public class PlayerMotor : MonoBehaviour {
 
         velocity.x = direction.x * speed;
         velocity.y = direction.y * speed;
-        
+
         // Rotate and Move player accordingly
         if (con.gunDrawn) {
             Vector3 lookPos = GetComponentInChildren<Camera>().ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -84,7 +82,6 @@ public class PlayerMotor : MonoBehaviour {
     }
 
 	void GenerateFeature() {
-		Feature f = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, curDirection);
-		fe.AddFeature(f);
+		GameManager.Instance.GenerateEnemyMatrix();
 	}
 }
