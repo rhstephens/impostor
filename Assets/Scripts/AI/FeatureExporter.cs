@@ -11,20 +11,30 @@ using UnityEngine;
 public class FeatureExporter {
 
 	const string DATE_FORMAT = "yyyyMMdd-HHmm";
-	const string FILE_PREFIX = "features_";
+	const string FOLDER_PREFIX = "features_";
 
-	List<Feature> _features = new List<Feature>();
+	List<int[,]> _playerMatrices = new List<int[,]>();
+	List<int[,]> _obstacleMatrices = new List<int[,]>();
+	List<int[,]> _enemyMatrices = new List<int[,]>();
 	AWSClient _client;
 
-	public FeatureExporter(AWSClient client) {
+	public FeatureExporter() {
 		_client = GameManager.Instance.Client;
 	}
 
-	public void AddFeature(Feature f) {
-		_features.Add(f);
+	public void AddPlayerMatrix(List<int[,]> matrix) {
+		_playerMatrices.Add(matrix);
 	}
 
-	// Iterates through the list of Features and stores them on S3 as a CSV file.
+	public void AddObstacleMatrix(List<int[,]> matrix) {
+		_obstacleMatrices.Add(matrix);
+	}
+
+	public void AddEnemyMatrix(List<int[,]> matrix) {
+		_enemyMatrices.Add(matrix);
+	}
+
+	// Iterates through the list of Features and stores them on S3 in multiple files.
 	public void ExportFeatures() {
 		// write to temp file
 		using (StreamWriter sw = new StreamWriter(FileName())) {
@@ -37,11 +47,11 @@ public class FeatureExporter {
 		_client.PostObject(AWSClient.BUCKET_NAME, S3Key(), FileName());
 	}
 
-	string S3Key() {
-		return "training-sets/" + FileName();
+	string S3Key(string filePrefix) {
+		return "training_sets/" + FolderName() + filePrefix + ".csv";
 	}
 
-	string FileName() {
-		return FILE_PREFIX + DateTime.Now.ToString(DATE_FORMAT) + ".csv";
+	string FolderName() {
+		return FOLDER_PREFIX + DateTime.Now.ToString(DATE_FORMAT) + "/";
 	}
 }

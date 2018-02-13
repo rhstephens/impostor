@@ -11,7 +11,7 @@ public class PlayerMotor : MonoBehaviour {
 	//TODO: Remove this once model has been trained successfully
 	FeatureExporter fe;
 	Train trainer;
-	float featureRate = 1f / 5f;
+	float featureRate = 3f / 5f;
 	public float sinceMotion = 0;
 	public float sinceDirection = 0;
 	public bool inMotion = false;
@@ -25,6 +25,7 @@ public class PlayerMotor : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
         con = GetComponent<PlayerController>();
+		fe = new FeatureExporter();
 		InvokeRepeating("GenerateFeature", 1f, featureRate);
 	}
 	
@@ -77,11 +78,13 @@ public class PlayerMotor : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftShift)) {
             return runSpeed;
         }
-
         return walkSpeed;
     }
 
 	void GenerateFeature() {
-		GameManager.Instance.GenerateEnemyMatrix();
+		fe.AddPlayerMatrix(GameManager.Instance.GeneratePlayerMatrix());
+		fe.AddObstacleMatrix(GameManager.Instance.GenerateObstacleMatrix());
+		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix());
+		fe.AddLabelData();
 	}
 }

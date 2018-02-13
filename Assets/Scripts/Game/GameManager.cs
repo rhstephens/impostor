@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Collections;
 using UnityEngine;
+
 /// <summary>
 /// The game manager that players will interact with for client-side tasks
 /// </summary>
