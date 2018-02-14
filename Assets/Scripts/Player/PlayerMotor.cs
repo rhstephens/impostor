@@ -82,9 +82,9 @@ public class PlayerMotor : MonoBehaviour {
     }
 
 	void GenerateFeature() {
-		fe.AddPlayerMatrix(GameManager.Instance.GeneratePlayerMatrix());
+		fe.AddPlayerMatrix(GameManager.Instance.GeneratePlayerMatrix(gameObject));
 		fe.AddObstacleMatrix(GameManager.Instance.GenerateObstacleMatrix());
 		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix());
-		fe.AddLabelData();
+		//fe.AddLabelledData();
 	}
 }

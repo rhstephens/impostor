@@ -22,29 +22,60 @@ public class FeatureExporter {
 		_client = GameManager.Instance.Client;
 	}
 
-	public void AddPlayerMatrix(List<int[,]> matrix) {
+	public void AddPlayerMatrix(int[,] matrix) {
 		_playerMatrices.Add(matrix);
 	}
 
-	public void AddObstacleMatrix(List<int[,]> matrix) {
+	public void AddObstacleMatrix(int[,] matrix) {
 		_obstacleMatrices.Add(matrix);
 	}
 
-	public void AddEnemyMatrix(List<int[,]> matrix) {
+	public void AddEnemyMatrix(int[,] matrix) {
 		_enemyMatrices.Add(matrix);
 	}
 
 	// Iterates through the list of Features and stores them on S3 in multiple files.
 	public void ExportFeatures() {
-		// write to temp file
-		using (StreamWriter sw = new StreamWriter(FileName())) {
+		// validation
+		validate();
+
+		// write to temp files
+		using (StreamWriter sw = new StreamWriter("playerMatrices.csv")) {
 			CsvWriter csv = new CsvWriter(sw);
-			csv.Configuration.RegisterClassMap<FeatureMap>();
 			csv.Configuration.HasHeaderRecord = false;
-			csv.WriteRecords(_features);
+			foreach (int[,] matrix in _playerMatrices) {
+				csv.WriteRecords(matrix);
+			}
 		}
 
-		_client.PostObject(AWSClient.BUCKET_NAME, S3Key(), FileName());
+		using (StreamWriter sw = new StreamWriter("obstacleMatrices.csv")) {
+			CsvWriter csv = new CsvWriter(sw);
+			csv.Configuration.HasHeaderRecord = false;
+			foreach (int[,] matrix in _obstacleMatrices) {
+				csv.WriteRecords(matrix);
+			}
+		}
+
+		using (StreamWriter sw = new StreamWriter("enemyMatrices.csv")) {
+			CsvWriter csv = new CsvWriter(sw);
+			csv.Configuration.HasHeaderRecord = false;
+			foreach (int[,] matrix in _enemyMatrices) {
+				csv.WriteRecords(matrix);
+			}
+		}
+
+		// meta data
+		using (StreamWriter sw = new StreamWriter("metadata.json")) {
+			string data = string.Format("\"matrix_length\": {0}, \"matrix_width\": {1}, \"matrix_count\": {2}", GameManager.GRID_LENGTH,
+				GameManager.GRID_WIDTH, _playerMatrices.Count);
+			sw.WriteLine("{" + data + "}");
+		}
+
+		// post to S3
+		_client.PostObject(AWSClient.BUCKET_NAME, S3Key("playerMatrices"), "playerMatrices.csv");
+		_client.PostObject(AWSClient.BUCKET_NAME, S3Key("obstacleMatrices"), "obstacleMatrices.csv");
+		_client.PostObject(AWSClient.BUCKET_NAME, S3Key("enemyMatrices"), "enemyMatrices.csv");
+		_client.PostObject(AWSClient.BUCKET_NAME, S3Key("metadata.json").Replace(".csv", ""), "metadata.json");
 	}
 
 	string S3Key(string filePrefix) {
@@ -53,5 +84,17 @@ public class FeatureExporter {
 
 	string FolderName() {
 		return FOLDER_PREFIX + DateTime.Now.ToString(DATE_FORMAT) + "/";
+	}
+
+	private void validate() {
+		int playerCount = _playerMatrices.Count;
+		int obstacleCount = _obstacleMatrices.Count;
+		int enemyCount = _enemyMatrices.Count;
+
+		if (playerCount != obstacleCount || playerCount != enemyCount) {
+			throw new System.InvalidOperationException(string.Format("Mismatch between player({0}), obstacle({1}), and enemy({2}) matrix lengths",
+			playerCount, obstacleCount, enemyCount));
+		}
+		
 	}
 }

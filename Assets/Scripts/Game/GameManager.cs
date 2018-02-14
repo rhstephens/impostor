@@ -148,8 +148,8 @@ public class GameManager : Singleton<GameManager> {
 	// Input data for Convolutional Neural Network
 	//////////////////////////////////////////////
 
-	const int GRID_LENGTH = 200;
-	const int GRID_WIDTH = 100;
+	public const int GRID_LENGTH = 200;
+	public const int GRID_WIDTH = 100;
 
 	// Determines the grid location (x, y) of the given object position.
 	public Vector2 gridLocation(Vector2 pos) {
