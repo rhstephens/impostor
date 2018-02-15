@@ -12,6 +12,10 @@ public class PlayerMotor : MonoBehaviour {
 	FeatureExporter fe;
 	Train trainer;
 	float featureRate = 3f / 5f;
+
+	// 1 in the "direction" the player is facing. Index 0 is up, 1 is top-right, ... 8 is "no direction"
+	int[] labelledData = new int[GameManager.YLABEL_LENGTH];
+
 	public float sinceMotion = 0;
 	public float sinceDirection = 0;
 	public bool inMotion = false;
@@ -85,6 +89,26 @@ public class PlayerMotor : MonoBehaviour {
 		fe.AddPlayerMatrix(GameManager.Instance.GeneratePlayerMatrix(gameObject));
 		fe.AddObstacleMatrix(GameManager.Instance.GenerateObstacleMatrix());
 		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix());
-		//fe.AddLabelledData();
+
+		// TODO: make this smarter
+		// determine labelled data from input direction
+		int horiz = (int) Input.GetAxisRaw("Horizontal");
+		int vert = (int) Input.GetAxisRaw("Vertical");
+		if (horiz == 1) {
+			labelledData[2 - vert] = 1;
+		} else if (horiz == 0) {
+			labelledData[2 - (vert * 2)] = 1;
+		} else if (horiz == -1) {
+			labelledData[6 + vert] = 1;
+		}
+
+		// for no input
+		if (horiz == 0 && vert == 0) {
+			for (int i = 0; i < 9; i++) {
+				labelledData[i] = 0;
+			}
+			labelledData[8] = 1;
+		}
+		fe.AddLabelledData(labelledData);
 	}
 }
