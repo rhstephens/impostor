@@ -90,7 +90,7 @@ public class PlayerMotor : MonoBehaviour {
 		fe.AddObstacleMatrix(GameManager.Instance.GenerateObstacleMatrix());
 		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix());
 
-		// TODO: make this smarter
+		// TODO: make this smarter (maybe. it is fine as it is currently)
 		// determine labelled data from input direction
 		int horiz = (int) Input.GetAxisRaw("Horizontal");
 		int vert = (int) Input.GetAxisRaw("Vertical");

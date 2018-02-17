@@ -15,7 +15,7 @@ using Amazon.S3.Model;
 /// </summary>
 public class AWSClient : MonoBehaviour {
 
-	public const string BUCKET_NAME = "codetroopa-imposter";
+	public const string BUCKET_NAME = "codetroopa-impostor";
 	const string COGNITO_POOL_ID = "us-east-2:7d3d9a09-7eef-4d62-a5cf-ffda2a75491c";
 
 	RegionEndpoint _region = RegionEndpoint.USEast2;
