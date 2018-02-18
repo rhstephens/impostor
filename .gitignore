@@ -8,6 +8,7 @@
 /Assets/AssetStoreTools*
 
 *.csv
+.python-version
 
 # Visual Studio 2015 cache directory
 /.vs/
