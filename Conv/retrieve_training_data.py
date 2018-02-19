@@ -2,11 +2,11 @@ import numpy as np
 import csv
 import boto3
 import json
-
-from sklearn.model_selection import train_test_split
+import pickle
+from datetime import datetime
 
 BUCKET_NAME = 'codetroopa-impostor'
-TSET_PREFIX = 'training_sets/'
+TSET_PREFIX = 'unprocessed_training_data/'
 
 PLAYER_KEY = 'playerMatrices.csv'
 OBSTACLE_KEY = 'obstacleMatrices.csv'
@@ -33,7 +33,7 @@ def reshape_data(pmatrix, omatrix, ematrix, ylabels):
 
     # Assert that we have the same number of input data as labelled data
     assert(x_data.shape[0] == ylabels.shape[0])
-    return train_test_split(x_data, ylabels, test_size=0.15, random_state=42)
+    return (x_data, ylabels)
 
 
 # This returns all three matrices needed for training
@@ -93,6 +93,18 @@ if __name__ == '__main__':
     # First, we go through all objects in our training_sets folder
     (player_matrices, obstacle_matrices, enemy_matrices, y_labels) = get_matrices_from_s3()
 
-    # Reshape data for training and split it into training/test set
-    x_train, y_train, x_test, y_test = reshape_data(player_matrices, obstacle_matrices, enemy_matrices, y_labels)
-    
+    # Reshape training data into a collection of 3D matrix
+    (x_data, y_labels) = reshape_data(player_matrices, obstacle_matrices, enemy_matrices, y_labels)
+
+    # Serialize training data locally
+    data = { 'xlabels': x_data, 'ylabels': y_labels }
+    with open('training_set.pkl', 'wb') as f:
+        pickle.dump(data, f)
+
+    # Store training set in AWS S3 for future use / backup
+    with open('training_set.pkl', 'rb') as f:
+        client.put_object(
+            Bucket=BUCKET_NAME,
+            Key='training_sets/training_set_{}.pkl'.format(datetime.now().strftime('%Y-%m-%d%H%M')),
+            Body=f
+        )

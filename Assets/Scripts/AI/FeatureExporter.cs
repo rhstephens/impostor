@@ -96,7 +96,7 @@ public class FeatureExporter {
 	}
 
 	string S3Key(string filePrefix) {
-		return "training_sets/" + FolderName() + filePrefix;
+		return "unprocessed_training_data/" + FolderName() + filePrefix;
 	}
 
 	string FolderName() {
