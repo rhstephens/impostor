@@ -30,7 +30,9 @@
 	- Obstacles generally stay in the same position for a large majority of the game.
 	- Computing this matrix every time an AI needs to select a new direction is *very* expensive.
 	- Instead, add some listener that gets triggered any-time an Obstacle/Wall is destroyed. Only then will it re-calculate and cache the Obstacle Matrix.
-- [ ]
+- [ ] Better training data generation.
+	- Right now, AI are standing still. As such, the Enemy Matrices are almost always the same
+	- A better approach would be to randomly move all AI to a different grid position that DOES NOT contain an Obstacle/Wall
 
 	
 ## TODO:
