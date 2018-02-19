@@ -48,7 +48,12 @@
 	- [X] Store CSV on AWS S3
 	- [X] Begin gathering training set data
 	- [X] Train a first generation logistic regression model
-	- [ ] Look for improvements in the model
+	- [X] Look for improvements in the model
+	- [ ] Train CNN model
+		- [X] Enhance `GameManager` to generate Player/Obstacle/Enemy Matrices for training.
+		- [X] Script to import training data from S3
+		- [ ] Script to generate a model from training data
+		- [ ] Gather data and test first generation model on AI
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network

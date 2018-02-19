@@ -5,7 +5,6 @@ import json
 
 from sklearn.model_selection import train_test_split
 
-
 BUCKET_NAME = 'codetroopa-impostor'
 TSET_PREFIX = 'training_sets/'
 
@@ -14,7 +13,6 @@ OBSTACLE_KEY = 'obstacleMatrices.csv'
 ENEMY_KEY = 'enemyMatrices.csv'
 YLABEL_KEY = 'ylabels.csv'
 META_KEY = 'metadata.json'
-
 
 def folder_names():
     response = client.list_objects_v2(
