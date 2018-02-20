@@ -2,6 +2,7 @@ import numpy as np
 import csv
 import boto3
 import json
+import os
 import pickle
 from datetime import datetime
 
@@ -84,7 +85,8 @@ def get_matrices_from_s3():
         y_label = np.fromstring(response['Body'].read().decode('utf-8'), sep='\n', dtype=int)
         y_labels = np.concatenate((y_labels, y_label.reshape((m_count, y_length))))
 
-    assert(player_matrices.shape[0] == obstacle_matrices.shape[0] and player_matrices.shape[0] == enemy_matrices.shape[0])
+    assert(player_matrices.shape[0] == obstacle_matrices.shape[0])
+    assert(player_matrices.shape[0] == enemy_matrices.shape[0])
     return (player_matrices, obstacle_matrices, enemy_matrices, y_labels)
 
 if __name__ == '__main__':
@@ -98,13 +100,13 @@ if __name__ == '__main__':
 
     # Serialize training data locally
     data = { 'xlabels': x_data, 'ylabels': y_labels }
-    with open('training_set.pkl', 'wb') as f:
+    with open('{}/training_set.pkl'.format(os.path.dirname(__file__)), 'wb') as f:
         pickle.dump(data, f)
 
     # Store training set in AWS S3 for future use / backup
-    with open('training_set.pkl', 'rb') as f:
+    with open('{}/training_set.pkl'.format(os.path.dirname(__file__)), 'rb') as f:
         client.put_object(
             Bucket=BUCKET_NAME,
-            Key='training_sets/training_set_{}.pkl'.format(datetime.now().strftime('%Y-%m-%d%H%M')),
+            Key='training_sets/training_set_{}.pkl'.format(datetime.now().strftime('%Y%m%d-%H%M')),
             Body=f
         )

@@ -53,7 +53,9 @@
 		- [X] Enhance `GameManager` to generate Player/Obstacle/Enemy Matrices for training.
 		- [X] Script to import training data from S3
 		- [ ] Script to generate a model from training data
-		- [ ] Gather data and test first generation model on AI
+		- [ ] Gather data and create first generation model
+	- [ ] Python API that provides access to Model Predictions
+		- [ ]
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network
