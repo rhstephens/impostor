@@ -12,9 +12,9 @@
 - Distance from nearest player/ai
 
 #### Output:
-- Vector of player input 
+- Vector of player input
 - [0 1 0 1] which maps to WASD
-	
+
 ## Convolutional Neural Network Approach:
 #### Input: 200x100x3 matrix.
 - A 200x100 plane in the X/Y axis that either contains 0 or 1 in each spot, depending on whether an object is there or not.
@@ -34,7 +34,6 @@
 	- Right now, AI are standing still. As such, the Enemy Matrices are almost always the same
 	- A better approach would be to randomly move all AI to a different grid position that DOES NOT contain an Obstacle/Wall
 
-	
 ## TODO:
 - [ ] Finish map
 	- [X] Warehouse at east side
