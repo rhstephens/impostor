@@ -1,6 +1,8 @@
 import numpy as np
 import os
 import pickle
+import boto3
+from datetime import datetime
 
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
@@ -8,6 +10,8 @@ from keras.layers import Dense, Dropout, Activation, Flatten, Convolution2D, Max
 from keras import backend as K
 K.set_image_dim_ordering('th')
 
+
+BUCKET_NAME = 'codetroopa-impostor'
 
 if __name__ == "__main__":
     # Data that gets saved is in the format of: data = { 'xlabels': x_data, 'ylabels': y_labels }
@@ -43,3 +47,18 @@ if __name__ == "__main__":
     model.fit(X_train, y_train, batch_size=32, nb_epoch=10, verbose=True)
 
     score = model.evaluate(X_test, y_test, verbose=1)
+    print('Loss: {}'.format(score[0]))
+    print('Accuracy: {}'.format(score[1]))
+
+    # store model on S3 for later use
+    client = boto3.client('s3')
+    fname = '{}/model.h5'.format(os.path.dirname(__file__))
+    model.save(fname)
+
+    with open(fname) as f:
+        client.put_object(
+            Bucket=BUCKET_NAME,
+            Key='models/model_{}.pkl'.format(datetime.now().strftime('%Y%m%d-%H%M')),
+            Body=f
+        )
+    print('Successfully stored model on S3')

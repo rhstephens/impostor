@@ -52,7 +52,6 @@
 		- [X] Enhance `GameManager` to generate Player/Obstacle/Enemy Matrices for training.
 		- [X] Script to import training data from S3
 		- [X] Script to generate a model from training data
-		- [ ] Compare against 3D ConvNet
 		- [ ] Gather data and create first generation model
 	- [ ] Python API that provides access to Model Predictions
 		- [ ]

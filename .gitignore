@@ -8,6 +8,7 @@
 /Assets/AssetStoreTools*
 
 *.csv
+*.h5
 *.pkl
 .python-version
 
