@@ -11,6 +11,7 @@
 *.h5
 *.pkl
 .python-version
+*__pycache__/
 
 # Visual Studio 2015 cache directory
 /.vs/

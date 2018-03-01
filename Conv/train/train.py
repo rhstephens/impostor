@@ -55,10 +55,10 @@ if __name__ == "__main__":
     fname = '{}/model.h5'.format(os.path.dirname(__file__))
     model.save(fname)
 
-    with open(fname) as f:
+    with open(fname, 'rb') as f:
         client.put_object(
             Bucket=BUCKET_NAME,
-            Key='models/model_{}.pkl'.format(datetime.now().strftime('%Y%m%d-%H%M')),
+            Key='models/model_{}.h5'.format(datetime.now().strftime('%Y%m%d-%H%M')),
             Body=f
         )
     print('Successfully stored model on S3')

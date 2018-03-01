@@ -54,7 +54,9 @@
 		- [X] Script to generate a model from training data
 		- [ ] Gather data and create first generation model
 	- [ ] Python API that provides access to Model Predictions
-		- [ ]
+		- [ ] Load model from S3
+		- [ ] Method that takes in an input matrix and returns the prediction vector from the model
+		- [ ] Flask POST request to query against model
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network
