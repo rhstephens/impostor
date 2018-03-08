@@ -53,14 +53,14 @@
 		- [X] Script to import training data from S3
 		- [X] Script to generate a model from training data
 		- [ ] Gather data and create first generation model
-	- [ ] Python API that provides access to Model Predictions
-		- [ ] Load model from S3
-		- [ ] Method that takes in an input matrix and returns the prediction vector from the model
-		- [ ] Flask POST request to query against model
+	- [ ] Integrate Tensorflow model into C#
+		- [ ] Save first model with Tensorflow
+		- [ ] Import Tensorflow model from S3 to C# app
+		- [ ] Load Tensorflow model to be ready for prediction
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network
-	- [ ] Add AI section to readme
+	- [X] Add AI section to readme
 - [ ] Main Menu
 	- [ ] Start local game
 	- [ ] Return to menu after game is finished
