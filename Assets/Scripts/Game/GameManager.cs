@@ -93,7 +93,7 @@ public class GameManager : Singleton<GameManager> {
 	public void PopulateObstacleList() {
 		foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject))) {
 			if (go.layer == LayerMask.NameToLayer("Obstacle") || go.layer == LayerMask.NameToLayer("Wall")) {
-				
+
 			}
 		}
 	}

@@ -10,6 +10,8 @@ using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
+using TensorFlowSharp;
+
 /// <summary>
 /// A singleton class to govern Network related and server-side tasks. Unfortunately, unity doesn't support generic typed classes
 ///     for NetworkBehaviour so I could not abstract out the singleton pattern.
@@ -61,6 +63,21 @@ public class NetworkManager : NetworkBehaviour {
 		return newDirection;
 	}
 
+	//////////////////////////////////////////////
+	// Convolutional Neural Network Model
+	//////////////////////////////////////////////
+
+	// The Tensorflow graph has
+	// input node: conv2d_1_input
+	// output node: dense_2/Softmax
+
+	byte[] ReadStream(Stream input) {
+		using (MemoryStream ms = new MemoryStream()) {
+			input.CopyTo(ms);
+			return ms.ToArray();
+		}
+	}
+
 	// Downloads latest model from s3 and references it locally on the server.
 	void GetLatestModel() {
 		Debug.Log("Getting latest model...");
@@ -86,9 +103,24 @@ public class NetworkManager : NetworkBehaviour {
 	void GetModelObjectHandler(AmazonServiceResult<GetObjectRequest, GetObjectResponse> cb) {
 		GetObjectResponse resp = cb.Response;
 		if (resp.ResponseStream != null) {
-			using (Stream sr = resp.ResponseStream) {
-				BinaryFormatter formatter = new BinaryFormatter();
-				model = (AIModel)formatter.Deserialize(sr);
+			using (var graph = new TFGraph()) {
+				byte[] modelBytes;
+				using (Stream sr = resp.ResponseStream) {
+					modelBytes = ReadStream(sr);
+				}
+
+				graph.Import(modelBytes, "");
+				var session = new TFSession(graph);
+				var runner = session.GetRunner();
+				runner.AddInput(graph["Input/IsTraining"][0], false);
+
+				runner.AddInput(graph["Input/Values"][0], new TensorFlow.TFTensor(TFDataType.Float, new long[]{1,44,60},1*44*60*4));
+				runner.Fetch(graph["Output/Predictions"][0]);
+
+				var output = runner.Run();
+
+				// Fetch the results from output:
+				TFTensor result = output[0];
 			}
 		}
 		if (model != null) {

@@ -112,6 +112,5 @@ public class FeatureExporter {
 			throw new System.InvalidOperationException(string.Format("Mismatch between player({0}), obstacle({1}), and enemy({2}) matrix lengths",
 			playerCount, obstacleCount, enemyCount));
 		}
-		
 	}
 }
