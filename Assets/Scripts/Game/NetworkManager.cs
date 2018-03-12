@@ -10,7 +10,6 @@ using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
-using TensorFlowSharp;
 
 /// <summary>
 /// A singleton class to govern Network related and server-side tasks. Unfortunately, unity doesn't support generic typed classes
@@ -37,18 +36,10 @@ public class NetworkManager : NetworkBehaviour {
     }
 
 	AWSClient _client;
-	AIModel model = null;
-
-	public AWSClient Client {
-		get {
-			if (_client == null) {
-				_client = GameObject.Find("AWS").GetComponent<AWSClient>();
-			}
-			return _client;
-		}
-	}
+	TFModel model = null;
 
 	public void Start() {
+		_client = GameManager.Instance.Client;
 		GetLatestModel();
 	}
 
@@ -81,7 +72,7 @@ public class NetworkManager : NetworkBehaviour {
 	// Downloads latest model from s3 and references it locally on the server.
 	void GetLatestModel() {
 		Debug.Log("Getting latest model...");
-		Client.ListObjects(AWSClient.BUCKET_NAME, "models/", ListModelsHandler);
+		_client.ListObjects(AWSClient.BUCKET_NAME, "models/", ListModelsHandler);
 	}
 
 	// callback that handles retrieving a list of models on AWS.
@@ -97,31 +88,17 @@ public class NetworkManager : NetworkBehaviour {
 		}
 
 		// retrieve latest model and store it.
-		Client.GetObject(AWSClient.BUCKET_NAME, latestKey, GetModelObjectHandler);
+		_client.GetObject(AWSClient.BUCKET_NAME, latestKey, GetModelObjectHandler);
 	}
 
 	void GetModelObjectHandler(AmazonServiceResult<GetObjectRequest, GetObjectResponse> cb) {
 		GetObjectResponse resp = cb.Response;
 		if (resp.ResponseStream != null) {
-			using (var graph = new TFGraph()) {
-				byte[] modelBytes;
-				using (Stream sr = resp.ResponseStream) {
-					modelBytes = ReadStream(sr);
-				}
-
-				graph.Import(modelBytes, "");
-				var session = new TFSession(graph);
-				var runner = session.GetRunner();
-				runner.AddInput(graph["Input/IsTraining"][0], false);
-
-				runner.AddInput(graph["Input/Values"][0], new TensorFlow.TFTensor(TFDataType.Float, new long[]{1,44,60},1*44*60*4));
-				runner.Fetch(graph["Output/Predictions"][0]);
-
-				var output = runner.Run();
-
-				// Fetch the results from output:
-				TFTensor result = output[0];
+			byte[] modelBytes;
+			using (Stream sr = resp.ResponseStream) {
+				modelBytes = ReadStream(sr);
 			}
+			model = new TFModel(modelBytes);
 		}
 		if (model != null) {
 			Debug.Log("Retrieved model " + resp.Key);
