@@ -54,9 +54,10 @@
 		- [X] Script to generate a model from training data
 		- [ ] Gather data and create first generation model
 	- [ ] Integrate Tensorflow model into C#
-		- [ ] Save first model with Tensorflow
-		- [ ] Import Tensorflow model from S3 to C# app
-		- [ ] Load Tensorflow model to be ready for prediction
+		- [X] Save first model with Tensorflow
+		- [X] Import Tensorflow model from S3 to C# app
+		- [X] Load Tensorflow model to be ready for prediction
+		- [ ] Prepare input data for inference on C# model
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network

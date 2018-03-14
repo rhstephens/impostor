@@ -43,13 +43,13 @@ public class NetworkManager : NetworkBehaviour {
 		GetLatestModel();
 	}
 
-	public Vector2 PredictDirection(Feature x) {
+	public Vector2 PredictDirection(GameObject entity) {
 		if (model == null) {
 			Debug.Log("AIModel not yet instantiated...");
 			return Vector2.zero;
 		}
 
-		Vector2 newDirection = model.PredictDirection(x);
+		Vector2 newDirection = model.Predict(entity);
 		Debug.Log("Direction is X: " + newDirection.x.ToString() + " Y: " + newDirection.y.ToString());
 		return newDirection;
 	}

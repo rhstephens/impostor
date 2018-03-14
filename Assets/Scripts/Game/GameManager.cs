@@ -150,6 +150,7 @@ public class GameManager : Singleton<GameManager> {
 
 	public const int GRID_LENGTH = 200;
 	public const int GRID_WIDTH = 100;
+	public const int NUM_CHANNELS = 3;
 	public const int YLABEL_LENGTH = 9;
 
 	// Determines the grid location (x, y) of the given object position.

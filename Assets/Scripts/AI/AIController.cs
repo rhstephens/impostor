@@ -6,7 +6,7 @@
 public class AIController : MonoBehaviour {
 
 	// Time between every movement check
-	const float MOVE_RATE = 1f / 3f;
+	const float MOVE_RATE = 3f / 3f;
 
 	public float moveSpeed = 3f;
 	PlayerController con;
@@ -45,7 +45,9 @@ public class AIController : MonoBehaviour {
 
 	// Generates feature inputs every MOVE_RATE seconds to determine what the next best move is
 	void NextMove() {
-		Feature x = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, direction);
-		direction = NetworkManager.Instance.PredictDirection(x);
+		// DEPRECATED
+		// Feature x = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, direction);
+
+		direction = NetworkManager.Instance.PredictDirection(gameObject);
 	}
 }

@@ -32,7 +32,7 @@ public class PlayerMotor : MonoBehaviour {
 		fe = new FeatureExporter();
 		InvokeRepeating("GenerateFeature", 1f, featureRate);
 	}
-	
+
 	void Update() {
 		GameManager.Instance.GeneratePlayerMatrix(gameObject);
         Vector3 prevPos = transform.position;
