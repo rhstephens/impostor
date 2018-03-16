@@ -13,7 +13,9 @@ class TFModel {
     // Create a new Tensorflow Model from a serialized byte array containing the model's graph_def
     public TFModel(byte[] graph_def) {
         // Import graph definition and cache a session
+        Debug.Log("About to import graph_def");
         _graph.Import(graph_def);
+        Debug.Log("About to make session");
         _session = new TFSession(_graph);
     }
 
@@ -23,10 +25,8 @@ class TFModel {
         long[] dims = new long[]{ GameManager.NUM_CHANNELS, GameManager.GRID_LENGTH, GameManager.GRID_WIDTH };
         int size = GameManager.NUM_CHANNELS * GameManager.GRID_LENGTH * GameManager.GRID_WIDTH;
 
-        TFTensor inputTensor = new TensorFlow.TFTensor(input);
-
         var runner = _session.GetRunner();
-        runner.AddInput(_graph[INPUT_NODE][0], inputTensor);
+        runner.AddInput(_graph[INPUT_NODE][0], input);
         runner.Fetch(_graph[OUTPUT_NODE][0]);
 
         // Fetch the results from output:

@@ -57,6 +57,7 @@
 		- [X] Save first model with Tensorflow
 		- [X] Import Tensorflow model from S3 to C# app
 		- [X] Load Tensorflow model to be ready for prediction
+		- [ ] Use actual freeze_graph.py script when freezing model
 		- [ ] Prepare input data for inference on C# model
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
