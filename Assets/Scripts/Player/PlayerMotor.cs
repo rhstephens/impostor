@@ -10,7 +10,6 @@ public class PlayerMotor : MonoBehaviour {
 
 	//TODO: Remove this once model has been trained successfully
 	FeatureExporter fe;
-	Train trainer;
 	float featureRate = 2f / 5f;
 
 	// 1 in the "direction" the player is facing. Index 0 is up, 1 is top-right, ... 8 is "no direction"

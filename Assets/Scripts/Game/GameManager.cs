@@ -17,8 +17,6 @@ public class GameManager : Singleton<GameManager> {
 	Dictionary<int, GameObject> _aiList = new Dictionary<int, GameObject>();
 	Dictionary<int, GameObject> _obsList = new Dictionary<int, GameObject>();
 	AWSClient _client = null;
-	AIModel model;
-
     int _playerId = -1;
 
 	public AWSClient Client {
