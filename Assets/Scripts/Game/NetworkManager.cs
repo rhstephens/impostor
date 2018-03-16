@@ -88,11 +88,13 @@ public class NetworkManager : NetworkBehaviour {
 		}
 
 		// retrieve latest model and store it.
+		Debug.Log("Importing model named " + latestKey);
 		_client.GetObject(AWSClient.BUCKET_NAME, latestKey, GetModelObjectHandler);
 	}
 
 	void GetModelObjectHandler(AmazonServiceResult<GetObjectRequest, GetObjectResponse> cb) {
 		GetObjectResponse resp = cb.Response;
+		Debug.Log("Retrieved Response: " + resp.HttpStatusCode);
 		if (resp.ResponseStream != null) {
 			byte[] modelBytes;
 			using (Stream sr = resp.ResponseStream) {
