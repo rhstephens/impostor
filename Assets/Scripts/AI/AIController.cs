@@ -48,6 +48,6 @@ public class AIController : MonoBehaviour {
 		// DEPRECATED
 		// Feature x = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, direction);
 
-		NetworkManager.Instance.PredictDirection(gameObject, ref direction);
+		direction = NetworkManager.Instance.PredictDirection(gameObject);
 	}
 }

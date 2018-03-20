@@ -151,7 +151,9 @@ public class GameManager : Singleton<GameManager> {
 	public const int NUM_CHANNELS = 3;
 	public const int YLABEL_LENGTH = 9;
 	bool shouldRebuildMatrix = true;
-	int[,] obstacleMatrixCache = new int[GRID_WIDTH, GRID_LENGTH];
+	int[,] obstacleMatrix = new int[GRID_WIDTH, GRID_LENGTH];
+	int[,] playereMatrix = new int[GRID_WIDTH, GRID_LENGTH];
+	int[,] enemyMatrix = new int[GRID_WIDTH, GRID_LENGTH];
 
 
 	// Determines the grid location (x, y) of the given object position.
@@ -175,20 +177,18 @@ public class GameManager : Singleton<GameManager> {
 
 	// Generates a matrix respresentation of the map. Grids that contain the current player are 1, the rest are 0.
 	public int[,] GeneratePlayerMatrix(GameObject player) {
-		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
-
 		// Let matrix be all zeroes except at the Player's position
 		Vector2 playerGridLoc = gridLocation(new Vector2(player.transform.position.x, player.transform.position.y));
-		matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+		playereMatrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
 
-		return matrix;
+		return playereMatrix;
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an obstacle are 1, the rest are 0.
 	public int[,] GenerateObstacleMatrix() {
 		// Use cached Obstacle Matrix if no obstacles have since been destroyed
 		if (!shouldRebuildMatrix) {
-			return obstacleMatrixCache;
+			return obstacleMatrix;
 		}
 
 		// Length and Width of our grid. Could change dynamically, so we must calculate these each time
@@ -210,35 +210,34 @@ public class GameManager : Singleton<GameManager> {
 				if (hit.collider) {
 					int mask = hit.collider.gameObject.layer;
 					if (mask == LayerMask.NameToLayer("Obstacle") || mask == LayerMask.NameToLayer("Wall")) {
-						obstacleMatrixCache[i, j] = 1;
+						obstacleMatrix[i, j] = 1;
 					}
 				}
 			}
 		}
 
 		shouldRebuildMatrix = false;
-		return obstacleMatrixCache;
+		return obstacleMatrix;
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.
 	public int[,] GenerateEnemyMatrix(GameObject currentPlayer) {
-		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
 		Vector2 playerGridLoc;
 
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player")) {
 			playerGridLoc = gridLocation(new Vector2(go.transform.position.x, go.transform.position.y));
-			matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+			enemyMatrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
 		}
 
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag("AI")) {
 			playerGridLoc = gridLocation(new Vector2(go.transform.position.x, go.transform.position.y));
-			matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
+			enemyMatrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 1;
 		}
 
 		// ensure local player isn't added to the enemy matrix
 		playerGridLoc = gridLocation(currentPlayer.transform.position);
-		matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 0;
+		enemyMatrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 0;
 
-		return matrix;
+		return enemyMatrix;
 	}
 }
