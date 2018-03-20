@@ -150,6 +150,9 @@ public class GameManager : Singleton<GameManager> {
 	public const int GRID_WIDTH = 100;
 	public const int NUM_CHANNELS = 3;
 	public const int YLABEL_LENGTH = 9;
+	bool shouldRebuildMatrix = true;
+	int[,] obstacleMatrixCache = new int[GRID_WIDTH, GRID_LENGTH];
+
 
 	// Determines the grid location (x, y) of the given object position.
 	public Vector2 gridLocation(Vector2 pos) {
@@ -183,7 +186,10 @@ public class GameManager : Singleton<GameManager> {
 
 	// Generates a matrix respresentation of the map. Grids that contain an obstacle are 1, the rest are 0.
 	public int[,] GenerateObstacleMatrix() {
-		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
+		// Use cached Obstacle Matrix if no obstacles have since been destroyed
+		if (!shouldRebuildMatrix) {
+			return obstacleMatrixCache;
+		}
 
 		// Length and Width of our grid. Could change dynamically, so we must calculate these each time
 		float len = Mathf.Abs(topRight.position.x - topLeft.position.x);
@@ -204,13 +210,14 @@ public class GameManager : Singleton<GameManager> {
 				if (hit.collider) {
 					int mask = hit.collider.gameObject.layer;
 					if (mask == LayerMask.NameToLayer("Obstacle") || mask == LayerMask.NameToLayer("Wall")) {
-						matrix[i, j] = 1;
+						obstacleMatrixCache[i, j] = 1;
 					}
 				}
 			}
 		}
 
-		return matrix;
+		shouldRebuildMatrix = false;
+		return obstacleMatrixCache;
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.

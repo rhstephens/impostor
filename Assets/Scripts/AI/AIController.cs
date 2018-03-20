@@ -44,10 +44,10 @@ public class AIController : MonoBehaviour {
 	}
 
 	// Generates feature inputs every MOVE_RATE seconds to determine what the next best move is
-	void NextMove() {
+	async void NextMove() {
 		// DEPRECATED
 		// Feature x = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, direction);
 
-		direction = NetworkManager.Instance.PredictDirection(gameObject);
+		NetworkManager.Instance.PredictDirection(gameObject, ref direction);
 	}
 }

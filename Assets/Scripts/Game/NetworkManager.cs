@@ -54,7 +54,6 @@ public class NetworkManager : NetworkBehaviour {
 		}
 
 		Vector2 newDirection = model.Predict(entity);
-		Debug.Log("Direction is X: " + newDirection.x.ToString() + " Y: " + newDirection.y.ToString());
 		return newDirection;
 	}
 

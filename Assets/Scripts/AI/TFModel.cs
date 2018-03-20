@@ -96,7 +96,6 @@ class TFModel {
             }
         }
 
-        Debug.Log(input.Length);
         return input;
     }
 }
