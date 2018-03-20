@@ -29,7 +29,7 @@ public class PlayerMotor : MonoBehaviour {
 	void Start() {
         con = GetComponent<PlayerController>();
 		fe = new FeatureExporter();
-		InvokeRepeating("GenerateFeature", 1f, featureRate);
+		// InvokeRepeating("GenerateFeature", 1f, featureRate);
 	}
 
 	void Update() {
@@ -87,7 +87,7 @@ public class PlayerMotor : MonoBehaviour {
 	void GenerateFeature() {
 		fe.AddPlayerMatrix(GameManager.Instance.GeneratePlayerMatrix(gameObject));
 		fe.AddObstacleMatrix(GameManager.Instance.GenerateObstacleMatrix());
-		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix());
+		fe.AddEnemyMatrix(GameManager.Instance.GenerateEnemyMatrix(gameObject));
 
 		// TODO: make this smarter (maybe. it is fine as it is currently)
 		// determine labelled data from input direction

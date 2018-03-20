@@ -214,7 +214,7 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	// Generates a matrix respresentation of the map. Grids that contain an enemy Player or AI are 1, the rest are 0.
-	public int[,] GenerateEnemyMatrix() {
+	public int[,] GenerateEnemyMatrix(GameObject currentPlayer) {
 		int[,] matrix = new int[GRID_WIDTH, GRID_LENGTH];
 		Vector2 playerGridLoc;
 
@@ -229,7 +229,7 @@ public class GameManager : Singleton<GameManager> {
 		}
 
 		// ensure local player isn't added to the enemy matrix
-		playerGridLoc = gridLocation(this.GetLocalPlayer().transform.position);
+		playerGridLoc = gridLocation(currentPlayer.transform.position);
 		matrix[(int)playerGridLoc.y, (int)playerGridLoc.x] = 0;
 
 		return matrix;

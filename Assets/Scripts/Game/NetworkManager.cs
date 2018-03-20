@@ -37,7 +37,6 @@ public class NetworkManager : NetworkBehaviour {
 
 	AWSClient _client;
 	TFModel model = null;
-	bool isModelAvailable = false;
 	byte[] modelBytes;
 
 	public void Start() {
@@ -46,14 +45,6 @@ public class NetworkManager : NetworkBehaviour {
 			Debug.Log("Retrieved model");
 		}
 		GetLatestModel();
-	}
-
-	void Update() {
-		if (isModelAvailable) {
-			isModelAvailable = false;
-			Debug.Log(modelBytes.Length);
-			model = new TFModel(modelBytes);
-		}
 	}
 
 	public Vector2 PredictDirection(GameObject entity) {
@@ -107,13 +98,15 @@ public class NetworkManager : NetworkBehaviour {
 
 	void GetModelObjectHandler(AmazonServiceResult<GetObjectRequest, GetObjectResponse> cb) {
 		GetObjectResponse resp = cb.Response;
-		Debug.Log("Retrieved Response: " + resp.HttpStatusCode);
+		Debug.Log("Retrieved Status: " + resp.HttpStatusCode);
 		if (resp.ResponseStream != null) {
-			Debug.Log("Got Stream");
 			using (Stream sr = resp.ResponseStream) {
 				modelBytes = ReadStream(sr);
-				isModelAvailable = true;
+				model = new TFModel(modelBytes);
 			}
+		}
+		if (model != null) {
+			Debug.Log("Model successfully retrieved");
 		}
 	}
 }
