@@ -34,6 +34,16 @@
 	- Right now, AI are standing still. As such, the Enemy Matrices are almost always the same
 	- A better approach would be to randomly move all AI to a different grid position that DOES NOT contain an Obstacle/Wall
 
+### The flaws of using a neural network
+After training and integrating my first version of a ConvNet, I noticed a few issues. First and foremost was a significant decrease in performance, mainly in small spikes that affected framerate. Whenever inference was performed on the model, there was a large spike in performance.
+
+Initially, I thought this was due to generating the large matrices to use as input data. I implemented caching so I only had to update the matrix when an obstacle/player has moved or been destroyed but that didn't solve the problem either. I had later learned that it was the sheer size of the Tensorflow graph that caused the issue. Since I was training on multiple thousand training samples, with each containing 60,000 points of data, the resulting Tensorflow model was large and took a long time to perform inference on.
+
+I recently attended GDC 2018 where a few developers at Unity talked about their experimental project, ML-Agents: a new open-source toolkit built to enable training and deploying Deep Learning models within Unity. It seemed like this was a perfect solution for my game, and a great opportunity to learn more about Unity's Engine.
+
+### ML-Agents
+- [ ]
+
 ## TODO:
 - [ ] Finish map
 	- [X] Warehouse at east side
@@ -48,17 +58,17 @@
 	- [X] Begin gathering training set data
 	- [X] Train a first generation logistic regression model
 	- [X] Look for improvements in the model
-	- [ ] Train CNN model
+	- [X] Train CNN model
 		- [X] Enhance `GameManager` to generate Player/Obstacle/Enemy Matrices for training.
 		- [X] Script to import training data from S3
 		- [X] Script to generate a model from training data
-		- [ ] Gather data and create first generation model
-	- [ ] Integrate Tensorflow model into C#
+		- [X] Gather data and create first generation model
+	- [X] Integrate Tensorflow model into C#
 		- [X] Save first model with Tensorflow
 		- [X] Import Tensorflow model from S3 to C# app
 		- [X] Load Tensorflow model to be ready for prediction
-		- [ ] Use actual freeze_graph.py script when freezing model
-		- [ ] Prepare input data for inference on C# model
+		- [X] Use actual freeze_graph.py script when freezing model
+		- [X] Prepare input data for inference on C# model
 	- [ ] Final model
 	- [ ] Integrate model with AI prefab.
 	- [ ] Sync AI prefab on the network

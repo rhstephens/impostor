@@ -2,3 +2,4 @@ Assets/DLL/* filter=lfs diff=lfs merge=lfs -text
 Assets/DLL/** filter=lfs diff=lfs merge=lfs -text
 Assets/ML-Agents filter=lfs diff=lfs merge=lfs -text
 Assets/ML-Agents/** filter=lfs diff=lfs merge=lfs -text
+Assets/Plugins/** filter=lfs diff=lfs merge=lfs -text

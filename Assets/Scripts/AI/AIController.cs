@@ -20,7 +20,6 @@ public class AIController : MonoBehaviour {
 	Vector2 direction = Vector2.zero;
 
 	void Start () {
-		InvokeRepeating("NextMove", 2f, MOVE_RATE);
 		con = GetComponent<PlayerController>();
 	}
 
@@ -41,13 +40,5 @@ public class AIController : MonoBehaviour {
 		velocity.x = direction.x * moveSpeed;
 		velocity.y = direction.y * moveSpeed;
 		con.Move(velocity * Time.deltaTime);
-	}
-
-	// Generates feature inputs every MOVE_RATE seconds to determine what the next best move is
-	async void NextMove() {
-		// DEPRECATED
-		// Feature x = Feature.GeneratePlayerFeatures(gameObject, inMotion, sinceMotion, sinceDirection, direction);
-
-		direction = NetworkManager.Instance.PredictDirection(gameObject);
 	}
 }

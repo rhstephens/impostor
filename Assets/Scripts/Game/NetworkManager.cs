@@ -44,7 +44,8 @@ public class NetworkManager : NetworkBehaviour {
 		if (model != null) {
 			Debug.Log("Retrieved model");
 		}
-		GetLatestModel();
+		// DEPRECATED for now. Looking into ml-agents
+		// GetLatestModel();
 	}
 
 	public Vector2 PredictDirection(GameObject entity) {
