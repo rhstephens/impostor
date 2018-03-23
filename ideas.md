@@ -42,7 +42,15 @@ Initially, I thought this was due to generating the large matrices to use as inp
 I recently attended GDC 2018 where a few developers at Unity talked about their experimental project, ML-Agents: a new open-source toolkit built to enable training and deploying Deep Learning models within Unity. It seemed like this was a perfect solution for my game, and a great opportunity to learn more about Unity's Engine.
 
 ### ML-Agents
-- [ ]
+#### Academy
+Controls any live AI Agents to determine a prediction. Can control many Brains across many agents and is responsible for giving certain impostors certain Brains.
+
+#### Brains
+In Impostor, we can have many different Brain types to simulate different types of Player movement. For example, we can have one Brain imitate the behaviour of a player that tries to avoid other players as best it can. And another Brain to simulate a player that is aggressive and chases/follows players.
+
+#### Agents
+All agents will appear the same as real Players visually, but will have different policies trained into each of their brains. Technically, the Main character is also an Agent, although their Brain is always set to "Player"
+The ImpostorAgent GameObject will be responsible for collecting observations from the environment, as well as the corresponding actions for movement. Will have to refactor PlayerMotor logic into ImpostorAgent logic.
 
 ## TODO:
 - [ ] Finish map
