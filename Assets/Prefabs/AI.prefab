@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95163998815278996}
   - component: {fileID: 114773294159105730}
   - component: {fileID: 114721178783359772}
+  - component: {fileID: 114610839536791878}
   m_Layer: 8
   m_Name: AI
   m_TagString: AI
@@ -170,6 +171,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114610839536791878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255268143267234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9094564b318c442dca633d9707ac7de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 114643761085449900, guid: e1819679b0c314da2984b7fab7524ef5, type: 2}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
 --- !u!114 &114721178783359772
 MonoBehaviour:
   m_ObjectHideFlags: 1

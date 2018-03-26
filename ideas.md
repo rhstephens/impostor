@@ -52,6 +52,9 @@ In Impostor, we can have many different Brain types to simulate different types 
 All agents will appear the same as real Players visually, but will have different policies trained into each of their brains. Technically, the Main character is also an Agent, although their Brain is always set to "Player"
 The ImpostorAgent GameObject will be responsible for collecting observations from the environment, as well as the corresponding actions for movement. Will have to refactor PlayerMotor logic into ImpostorAgent logic.
 
+###### Observations:
+-
+
 ## TODO:
 - [ ] Finish map
 	- [X] Warehouse at east side

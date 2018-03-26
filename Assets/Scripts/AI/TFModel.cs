@@ -21,8 +21,6 @@ class TFModel {
     // Predict a direction given input matrices
     public Vector2 Predict(GameObject go) {
         Array input = GenerateInputMatrix(go);
-        long[] dims = new long[]{ GameManager.NUM_CHANNELS, GameManager.GRID_LENGTH, GameManager.GRID_WIDTH };
-        int size = GameManager.NUM_CHANNELS * GameManager.GRID_LENGTH * GameManager.GRID_WIDTH;
 
         var runner = _session.GetRunner();
         runner.AddInput(_graph[INPUT_NODE][0], input);
