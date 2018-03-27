@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Struct that contains all the information for an Agent, including its 
+/// Struct that contains all the information for an Agent, including its
 /// observations, actions and current status, that is sent to the Brain.
 /// </summary>
 public struct AgentInfo
@@ -71,7 +71,7 @@ public struct AgentInfo
 }
 
 /// <summary>
-/// Struct that contains the action information sent from the Brain to the 
+/// Struct that contains the action information sent from the Brain to the
 /// Agent.
 /// </summary>
 public struct AgentAction
@@ -82,7 +82,7 @@ public struct AgentAction
 }
 
 /// <summary>
-/// Struct that contains all the Agent-specific parameters provided in the 
+/// Struct that contains all the Agent-specific parameters provided in the
 /// Editor. This excludes the Brain linked to the Agent since it can be
 /// modified programmatically.
 /// </summary>
@@ -96,7 +96,7 @@ public class AgentParameters
     public List<Camera> agentCameras = new List<Camera>();
 
     /// <summary>
-    /// The maximum number of steps the agent takes before being done. 
+    /// The maximum number of steps the agent takes before being done.
     /// </summary>
     /// <remarks>
     /// If set to 0, the agent can only be set to done programmatically (or
@@ -118,7 +118,7 @@ public class AgentParameters
     public bool resetOnDone = true;
 
     /// <summary>
-    /// Whether to enable On Demand Decisions or make a decision at 
+    /// Whether to enable On Demand Decisions or make a decision at
     /// every step.
     /// </summary>
     public bool onDemandDecision;
@@ -133,8 +133,8 @@ public class AgentParameters
 
 /// <summary>
 /// Agent Monobehavior class that is attached to a Unity GameObject, making it
-/// an Agent. An agent produces observations and takes actions in the 
-/// environment. Observations are determined by the cameras attached 
+/// an Agent. An agent produces observations and takes actions in the
+/// environment. Observations are determined by the cameras attached
 /// to the agent in addition to the vector observations implemented by the
 /// user in <see cref="CollectObservations"/>. On the other hand, actions
 /// are determined by decisions produced by a linked Brain. Currently, this
@@ -147,23 +147,23 @@ public class AgentParameters
 /// however, an agent need not send its observation at every step since very
 /// little may have changed between sucessive steps. Currently, how often an
 /// agent updates its brain with a fresh observation is determined by the
-/// Academy. 
-/// 
-/// At any step, an agent may be considered <see cref="done"/>. 
+/// Academy.
+///
+/// At any step, an agent may be considered <see cref="done"/>.
 /// This could occur due to a variety of reasons:
 ///     - The agent reached an end state within its environment.
 ///     - The agent reached the maximum # of steps (i.e. timed out).
 ///     - The academy reached the maximum # of steps (forced agent to be done).
-/// 
+///
 /// Here, an agent reaches an end state if it completes its task successfully
 /// or somehow fails along the way. In the case where an agent is done before
 /// the academy, it either resets and restarts, or just lingers until the
 /// academy is done.
-/// 
+///
 /// An important note regarding steps and episodes is due. Here, an agent step
 /// corresponds to an academy step, which also corresponds to Unity
 /// environment step (i.e. each FixedUpdate call). This is not the case for
-/// episodes. The academy controls the global episode count and each agent 
+/// episodes. The academy controls the global episode count and each agent
 /// controls its own local episode count and can reset and start a new local
 /// episode independently (based on its own experience). Thus an academy
 /// (global) episode can be viewed as the upper-bound on an agents episode
@@ -171,10 +171,10 @@ public class AgentParameters
 /// multiple local episodes. Consequently, if an agent max step is
 /// set to a value larger than the academy max steps value, then the academy
 /// value takes precedence (since the agent max step will never be reached).
-/// 
+///
 /// Lastly, note that at any step the brain linked to the agent is allowed to
 /// change programmatically with <see cref="GiveBrain"/>.
-/// 
+///
 /// Implementation-wise, it is required that this class is extended and the
 /// virtual methods overridden. For sample implementations of agent behavior,
 /// see the Examples/ directory within this Unity project.
@@ -186,7 +186,7 @@ public abstract class Agent : MonoBehaviour
 {
     /// <summary>
     /// The Brain attached to this agent. A brain can be attached either
-    /// directly from the Editor through AgentEditor or 
+    /// directly from the Editor through AgentEditor or
     /// programmatically through <see cref="GiveBrain"/>. It is OK for an agent
     /// to not have a brain, as long as no decision is requested.
     /// </summary>
@@ -569,13 +569,13 @@ public abstract class Agent : MonoBehaviour
 
     /// <summary>
     /// Collects the (vector, visual, text) observations of the agent.
-    /// The agent observation describes the current environment from the 
+    /// The agent observation describes the current environment from the
     /// perspective of the agent.
     /// </summary>
     /// <remarks>
     /// Simply, an agents observation is any environment information that helps
     /// the Agent acheive its goal. For example, for a fighting Agent, its
-    /// observation could include distances to friends or enemies, or the 
+    /// observation could include distances to friends or enemies, or the
     /// current level of ammunition at its disposal.
     /// Recall that an Agent may attach vector, visual or textual observations.
     /// Vector observations are added by calling the provided helper methods:
@@ -592,7 +592,7 @@ public abstract class Agent : MonoBehaviour
     /// needs to match the vectorObservationSize attribute of the linked Brain.
     /// Visual observations are implicitly added from the cameras attached to
     /// the Agent.
-    /// Lastly, textual observations are added using 
+    /// Lastly, textual observations are added using
     /// <see cref="SetTextObs(string)"/>.
     /// </remarks>
     public virtual void CollectObservations()
@@ -700,7 +700,7 @@ public abstract class Agent : MonoBehaviour
     }
 
     /// <summary>
-    /// Specifies the agent behavior when done and 
+    /// Specifies the agent behavior when done and
     /// <see cref="AgentParameters.resetOnDone"/> is false. This method can be
     /// used to remove the agent from the scene.
     /// </summary>
@@ -760,9 +760,9 @@ public abstract class Agent : MonoBehaviour
     /// <summary>
     /// Sets the status of the agent.
     /// </summary>
-    /// <param name="academyMaxStep">If set to <c>true</c> 
+    /// <param name="academyMaxStep">If set to <c>true</c>
     /// The agent must set maxStepReached.</param>
-    /// <param name="academyDone">If set to <c>true</c> 
+    /// <param name="academyDone">If set to <c>true</c>
     /// The agent must set done.</param>
     void SetStatus(bool academyMaxStep, bool academyDone, int academyStepCounter)
     {
@@ -776,7 +776,7 @@ public abstract class Agent : MonoBehaviour
             maxStepReached = true;
         }
 
-        // If the Academy needs to reset, the agent should reset 
+        // If the Academy needs to reset, the agent should reset
         // even if it reseted recently.
         if (academyDone)
         {
@@ -788,7 +788,7 @@ public abstract class Agent : MonoBehaviour
     /// Signals the agent that it must reset if its done flag is set to true.
     void ResetIfDone()
     {
-        // If an agent is done, then it will also 
+        // If an agent is done, then it will also
         // request for a decision and an action
         if (IsDone())
         {

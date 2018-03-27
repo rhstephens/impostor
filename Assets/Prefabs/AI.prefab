@@ -182,13 +182,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9094564b318c442dca633d9707ac7de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 114643761085449900, guid: e1819679b0c314da2984b7fab7524ef5, type: 2}
+  brain: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
   agentParameters:
     agentCameras: []
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
+  walkSpeed: 3
+  runSpeed: 6
 --- !u!114 &114721178783359772
 MonoBehaviour:
   m_ObjectHideFlags: 1
