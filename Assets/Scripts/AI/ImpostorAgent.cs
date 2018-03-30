@@ -8,6 +8,7 @@ public class ImpostorAgent : Agent {
     public float runSpeed = 6f;
 
     Brain studentBrain;
+    RayPerception2D rayComponent;
     Vector2 direction = Vector2.zero;
     Vector3 velocity;
     PlayerController con;
@@ -24,6 +25,8 @@ public class ImpostorAgent : Agent {
         } else {
             throw new UnityAgentsException("Ryan: Can't find initial brain object!");
         }
+
+        rayComponent = GetComponent<RayPerception2D>();
     }
 
     public void Update() {
@@ -45,8 +48,9 @@ public class ImpostorAgent : Agent {
     // These numbers are added to the Observations and used by the Brain to make a Decision
     public override void CollectObservations() {
         float rayDistance = 50f;
-        float[] rayAngles = { 20f, 90f, 160f, 45f, 135f, 70f, 110f };
+        float[] rayAngles = { 20f, 90f, 160f, 45f, 135f, -20f, -90f, -160f, -45f, -135f };
         string[] detectableObjects = { "AI", "Player", "wall", "badBanana", "frozenAgent" };
+        rayComponent.Perceive(10f, rayAngles, new string[]{ "AI"}).Count;
         AddVectorObs(1f);
     }
 

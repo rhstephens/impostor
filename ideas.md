@@ -53,6 +53,8 @@ All agents will appear the same as real Players visually, but will have differen
 The ImpostorAgent GameObject will be responsible for collecting observations from the environment, as well as the corresponding actions for movement. Will have to refactor PlayerMotor logic into ImpostorAgent logic.
 
 ###### Observations:
+- List of floats corresponding to what the agent "sees" around itself using raycasts.
+- These floats represent whether or not a ray "sees" a particular object type, and the relative distance to the detectable object.
 -
 
 ## TODO:
