@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Simple log console that displays on ALL clients, not just the host 
+/// Simple log console that displays on ALL clients, not just the host
 /// </summary>
 public class DebugConsole : Singleton<DebugConsole> {
 
@@ -15,6 +15,6 @@ public class DebugConsole : Singleton<DebugConsole> {
     }
 
     void Start() {
-        debugText = GameObject.Find("DebugText").GetComponent<Text>();
+        // debugText = GameObject.Find("DebugText").GetComponent<Text>();
     }
 }

@@ -7,6 +7,7 @@ public class ImpostorAgent : Agent {
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
 
+    Brain studentBrain;
     Vector2 direction = Vector2.zero;
     Vector3 velocity;
     PlayerController con;
@@ -16,6 +17,13 @@ public class ImpostorAgent : Agent {
     public override void InitializeAgent() {
         base.InitializeAgent();
         con = GetComponent<PlayerController>();
+        GameObject studentObj = GameObject.Find("StudentBrain");
+        if (studentObj != null) {
+            studentBrain = studentObj.GetComponent<Brain>();
+            GiveBrain(studentBrain);
+        } else {
+            throw new UnityAgentsException("Ryan: Can't find initial brain object!");
+        }
     }
 
     public void Update() {
