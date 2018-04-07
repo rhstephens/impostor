@@ -8,7 +8,7 @@ using UnityEngine;
 public class RayPerception2D : MonoBehaviour {
     List<float> perceptionBuffer = new List<float>();
     Vector3 endPosition;
-    RaycastHit2D hit;
+    RaycastHit2D[] hits;
 
     /// <summary>
     /// Creates perception vector to be used as part of an observation of an agent.
@@ -23,6 +23,7 @@ public class RayPerception2D : MonoBehaviour {
     /// <param name="detectableObjects">List of tags which correspond to object types agent can see</param>
     public List<float> Perceive(float rayDistance, float[] rayAngles, string[] detectableObjects) {
         perceptionBuffer.Clear();
+        int ignoreMask = ~(1 << LayerMask.NameToLayer("Ground"));
         // For each ray sublist stores categorial information on detected object
         // along with object distance.
         foreach (float angle in rayAngles) {
@@ -33,12 +34,17 @@ public class RayPerception2D : MonoBehaviour {
             }
             float[] subList = new float[detectableObjects.Length + 2];
             // todo, make this raycast only hit certain objects
-            hit = Physics2D.Raycast(transform.position, endPosition, rayDistance);
-            if (hit) {
+            hits = Physics2D.RaycastAll(transform.position, endPosition, rayDistance, ignoreMask);
+            Debug.Log(hits.Length);
+            if (hits.Length > 1) {
+                RaycastHit2D hit = hits[1]; // The first Raycast hit is the own collider
                 for (int i = 0; i < detectableObjects.Length; i++) {
-                    if (hit.collider.gameObject.CompareTag(detectableObjects[i])) {
+                    if (hit.collider.gameObject.CompareTag(detectableObjects[i])
+                            || (detectableObjects[i] == "Player" && hit.collider.gameObject.tag == "AI")) {
+                                // We should consider AI as a Player
                         subList[i] = 1;
                         subList[detectableObjects.Length + 1] = hit.distance / rayDistance;
+                        Debug.Log(hit.collider.gameObject.name);
                         break;
                     }
                 }

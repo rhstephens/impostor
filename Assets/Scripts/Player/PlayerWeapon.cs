@@ -42,7 +42,9 @@ public class PlayerWeapon : NetworkBehaviour {
     [Command]
     void CmdFireShot(Vector3 clickPos) {
         Vector2 direction = clickPos - gunLocation.transform.position;
-        Debug.DrawRay(gunLocation.transform.position, direction, Color.red);
+        if (Application.isEditor) {
+            Debug.DrawRay(gunLocation.transform.position, direction, Color.red, 0.25f);
+        }
         hit = Physics2D.Raycast(gunLocation.transform.position, direction, weapon.Range, toHit);
 
         if (!weapon.Shoot()) {

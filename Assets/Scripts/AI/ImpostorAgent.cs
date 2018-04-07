@@ -5,7 +5,6 @@ using UnityEngine;
 public class ImpostorAgent : Agent {
 
     public float walkSpeed = 3f;
-    public float runSpeed = 6f;
 
     Brain studentBrain;
     RayPerception2D rayComponent;
@@ -30,9 +29,8 @@ public class ImpostorAgent : Agent {
     }
 
     public void Update() {
-        float speed = calculateSpeed();
-        velocity.x = direction.x * speed;
-        velocity.y = direction.y * speed;
+        velocity.x = direction.x * walkSpeed;
+        velocity.y = direction.y * walkSpeed;
 
         // Rotate and Move player accordingly
         if (con.gunDrawn) {
@@ -48,10 +46,10 @@ public class ImpostorAgent : Agent {
     // These numbers are added to the Observations and used by the Brain to make a Decision
     public override void CollectObservations() {
         float rayDistance = 50f;
-        float[] rayAngles = { 20f, 90f, 160f, 45f, 135f, -20f, -90f, -160f, -45f, -135f };
-        string[] detectableObjects = { "AI", "Player", "wall", "badBanana", "frozenAgent" };
-        rayComponent.Perceive(10f, rayAngles, new string[]{ "AI"}).Count;
-        AddVectorObs(1f);
+        // float[] rayAngles = { 20f, 70f, 90f, 110f, 160f, 45f, 135f, -20f, -70f, -90f, -110f, -160f, -45f, -135f };
+        float[] rayAngles = { 90f };
+        string[] detectableObjects = { "Player", "Unpassable" };
+        AddVectorObs(rayComponent.Perceive(10f, rayAngles, detectableObjects));
     }
 
     // Upon making a Decision, the Brain calls this method with the appropriate action Vector
@@ -67,13 +65,5 @@ public class ImpostorAgent : Agent {
     // In other words, it is the distance from the Agent to some other visible object type
     float[] GetLocalObservations() {
         return new float[]{1};
-    }
-
-    // Calculate speed based off of certain factors
-    float calculateSpeed() {
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            return runSpeed;
-        }
-        return walkSpeed;
     }
 }

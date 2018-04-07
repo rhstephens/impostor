@@ -34,6 +34,9 @@
 	- Right now, AI are standing still. As such, the Enemy Matrices are almost always the same
 	- A better approach would be to randomly move all AI to a different grid position that DOES NOT contain an Obstacle/Wall
 
+### On using a Neural Networks
+Recent research has showed some success in turning a high complexity gaming environment into a low resolution learning environment. This allows for features to be represented in a grid-like fashion based off of what is observable on the game map. A famous example of neural networks in gaming is the StarCraft II Learning Environment (link here...), which I had used as a starting point for my approach on ML controlled AI.
+
 ### The flaws of using a neural network
 After training and integrating my first version of a ConvNet, I noticed a few issues. First and foremost was a significant decrease in performance, mainly in small spikes that affected framerate. Whenever inference was performed on the model, there was a large spike in performance.
 
