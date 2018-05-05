@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5774596}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (9)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 25290465}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (8)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 37406576}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (8)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 44402107}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (4)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 55641752}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (26)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1718,6 +1718,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70113e5050d3ba24e974fa0771cbe817, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &57384483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43644f2ee03d440d4b9591cf404aa2b4, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!1001 &57587202
 Prefab:
   m_ObjectHideFlags: 0
@@ -2946,7 +2969,7 @@ GameObject:
   - component: {fileID: 100912967}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (12)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3374,7 +3397,7 @@ GameObject:
   - component: {fileID: 125557631}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (30)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3552,7 +3575,7 @@ GameObject:
   - component: {fileID: 132308682}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (9)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3649,7 +3672,7 @@ GameObject:
   - component: {fileID: 133085250}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (13)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4365,18 +4388,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70113e5050d3ba24e974fa0771cbe817, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &159423180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ed3478be286490a81b0659e765a692, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1 &160277502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,7 +4697,7 @@ GameObject:
   - component: {fileID: 170584535}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (10)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5521,7 +5532,7 @@ GameObject:
   - component: {fileID: 204802660}
   m_Layer: 11
   m_Name: spritesheet_tiles_272
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5628,7 +5639,7 @@ GameObject:
   - component: {fileID: 207275947}
   m_Layer: 11
   m_Name: spritesheet_tiles_105 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5867,7 +5878,7 @@ GameObject:
   - component: {fileID: 223810658}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (5)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6045,7 +6056,7 @@ GameObject:
   - component: {fileID: 231173112}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (26)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6376,7 +6387,7 @@ GameObject:
   - component: {fileID: 237290281}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (25)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6705,18 +6716,6 @@ Transform:
   m_Father: {fileID: 398645865}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &255717304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ed3478be286490a81b0659e765a692, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1001 &256350191
 Prefab:
   m_ObjectHideFlags: 0
@@ -7094,7 +7093,7 @@ GameObject:
   - component: {fileID: 276004652}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (17)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7749,7 +7748,7 @@ GameObject:
   - component: {fileID: 292777983}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8191,7 +8190,7 @@ GameObject:
   - component: {fileID: 311688553}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (27)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8831,8 +8830,8 @@ Transform:
   m_LocalPosition: {x: 12.784998, y: 20.78843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2002537578}
   - {fileID: 362319315}
+  - {fileID: 342954913}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8863,6 +8862,67 @@ MonoBehaviour:
   resetParameters:
     resetParameters: []
   agents: []
+--- !u!1 &342954912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1573880116193274, guid: e1819679b0c314da2984b7fab7524ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 342954913}
+  - component: {fileID: 342954914}
+  m_Layer: 0
+  m_Name: TeacherBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342954913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4026515985077128, guid: e1819679b0c314da2984b7fab7524ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342954912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 342554503}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342954914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342954912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14a4cc480b15448d9bd2926551c0f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brainParameters:
+    vectorObservationSize: 56
+    numStackedVectorObservations: 3
+    vectorActionSize: 4
+    cameraResolutions: []
+    vectorActionDescriptions:
+    - 
+    - 
+    - 
+    - 
+    vectorActionSpaceType: 1
+    vectorObservationSpaceType: 1
+  brainType: 0
+  CoreBrains:
+  - {fileID: 1714896564}
+  - {fileID: 2059914847}
+  - {fileID: 1251044829}
+  - {fileID: 476043590}
+  instanceID: -398102
 --- !u!1001 &345230896
 Prefab:
   m_ObjectHideFlags: 0
@@ -9002,7 +9062,7 @@ GameObject:
   - component: {fileID: 351885873}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (8)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9272,7 +9332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 342554503}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367386329
 GameObject:
@@ -9357,7 +9417,7 @@ GameObject:
   - component: {fileID: 369852049}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (9)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9528,7 +9588,7 @@ GameObject:
   - component: {fileID: 375084505}
   m_Layer: 11
   m_Name: spritesheet_tiles_107 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9705,7 +9765,7 @@ GameObject:
   - component: {fileID: 381184490}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (10)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9802,7 +9862,7 @@ GameObject:
   - component: {fileID: 382454039}
   m_Layer: 11
   m_Name: spritesheet_tiles_272 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9899,7 +9959,7 @@ GameObject:
   - component: {fileID: 384805722}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11379,22 +11439,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &422954344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63da64c212b0a40539ee828ecacaa870, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 2002537579}
 --- !u!4 &423745106 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
@@ -11569,7 +11613,7 @@ GameObject:
   - component: {fileID: 430664979}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (3)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12248,7 +12292,7 @@ GameObject:
   - component: {fileID: 449634732}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12636,6 +12680,29 @@ Transform:
   m_PrefabParentObject: {fileID: 4280469098451944, guid: 70113e5050d3ba24e974fa0771cbe817,
     type: 2}
   m_PrefabInternal: {fileID: 1790087444}
+--- !u!114 &476043590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43644f2ee03d440d4b9591cf404aa2b4, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!1 &478928312
 GameObject:
   m_ObjectHideFlags: 0
@@ -12765,7 +12832,7 @@ GameObject:
   - component: {fileID: 482303877}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (30)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13099,7 +13166,7 @@ GameObject:
   - component: {fileID: 494350507}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (25)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13235,34 +13302,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2a03d008d338af43a62d7c0b68105c6, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &503603622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63da64c212b0a40539ee828ecacaa870, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 119
-    index: 1
-    value: 1
-  - key: 97
-    index: 0
-    value: -1
-  - key: 115
-    index: 1
-    value: -1
-  - key: 100
-    index: 0
-    value: 1
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 556724337}
 --- !u!1 &503651968
 GameObject:
   m_ObjectHideFlags: 0
@@ -13275,7 +13314,7 @@ GameObject:
   - component: {fileID: 503651969}
   m_Layer: 11
   m_Name: spritesheet_tiles_188 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14280,7 +14319,7 @@ GameObject:
   - component: {fileID: 522910270}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (7)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14382,7 +14421,7 @@ GameObject:
   - component: {fileID: 527848643}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (31)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14992,7 +15031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 4
+    vectorObservationSize: 56
     numStackedVectorObservations: 3
     vectorActionSize: 4
     cameraResolutions: []
@@ -15005,11 +15044,11 @@ MonoBehaviour:
     vectorObservationSpaceType: 1
   brainType: 0
   CoreBrains:
-  - {fileID: 503603622}
-  - {fileID: 1203906901}
-  - {fileID: 159423180}
-  - {fileID: 750753093}
-  instanceID: 12630
+  - {fileID: 1879188993}
+  - {fileID: 1276013814}
+  - {fileID: 1316440912}
+  - {fileID: 57384483}
+  instanceID: 12644
 --- !u!4 &560101547 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
@@ -15825,7 +15864,7 @@ GameObject:
   - component: {fileID: 593022029}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16168,7 +16207,7 @@ GameObject:
   - component: {fileID: 599877276}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (6)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16369,29 +16408,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2a03d008d338af43a62d7c0b68105c6, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &615323207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43644f2ee03d440d4b9591cf404aa2b4, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 2002537579}
 --- !u!1 &615605284
 GameObject:
   m_ObjectHideFlags: 0
@@ -18059,7 +18075,7 @@ GameObject:
   - component: {fileID: 687795115}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (4)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19437,7 +19453,7 @@ GameObject:
   - component: {fileID: 729285822}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (20)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19927,29 +19943,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
     type: 2}
   m_PrefabInternal: {fileID: 325748013}
---- !u!114 &750753093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43644f2ee03d440d4b9591cf404aa2b4, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
 --- !u!1 &758989758
 GameObject:
   m_ObjectHideFlags: 0
@@ -21017,7 +21010,7 @@ GameObject:
   - component: {fileID: 801533625}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (32)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21152,7 +21145,7 @@ GameObject:
   - component: {fileID: 811218459}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (17)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24054,7 +24047,7 @@ GameObject:
   - component: {fileID: 909887416}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (13)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24638,7 +24631,7 @@ GameObject:
   - component: {fileID: 940572714}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (8)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25175,7 +25168,7 @@ GameObject:
   - component: {fileID: 961313242}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25272,7 +25265,7 @@ GameObject:
   - component: {fileID: 965008426}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (29)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25953,6 +25946,10 @@ Prefab:
     - target: {fileID: 4094569525882876, guid: 33aacb78c8b6e0444ab81a0fe8f754e8, type: 2}
       propertyPath: m_LocalScale.y
       value: 2.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245514768147560, guid: 33aacb78c8b6e0444ab81a0fe8f754e8, type: 2}
+      propertyPath: m_TagString
+      value: Unpassable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33aacb78c8b6e0444ab81a0fe8f754e8, type: 2}
@@ -28908,7 +28905,7 @@ GameObject:
   - component: {fileID: 1112175151}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (7)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29904,7 +29901,7 @@ GameObject:
   - component: {fileID: 1151705779}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (7)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30121,7 +30118,7 @@ GameObject:
   - component: {fileID: 1153623406}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (5)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30304,7 +30301,7 @@ GameObject:
   - component: {fileID: 1158999659}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (4)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31198,7 +31195,7 @@ GameObject:
   - component: {fileID: 1188496501}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (23)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31729,19 +31726,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70113e5050d3ba24e974fa0771cbe817, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1203906901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68415b644f464677987b1385b028fb1, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1001 &1204852758
 Prefab:
   m_ObjectHideFlags: 0
@@ -32287,7 +32271,7 @@ GameObject:
   - component: {fileID: 1224084152}
   m_Layer: 11
   m_Name: spritesheet_tiles_107 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32453,73 +32437,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
     type: 2}
   m_PrefabInternal: {fileID: 259067307}
---- !u!1001 &1232879877
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 342554503}
-    m_Modifications:
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-        type: 2}
-      propertyPath: CoreBrains.Array.data[0]
-      value: 
-      objectReference: {fileID: 2009206847}
-    - target: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-        type: 2}
-      propertyPath: CoreBrains.Array.data[1]
-      value: 
-      objectReference: {fileID: 1292459860}
-    - target: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-        type: 2}
-      propertyPath: CoreBrains.Array.data[2]
-      value: 
-      objectReference: {fileID: 255717304}
-    - target: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-        type: 2}
-      propertyPath: CoreBrains.Array.data[3]
-      value: 
-      objectReference: {fileID: 2088357585}
-    - target: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-        type: 2}
-      propertyPath: brainType
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 79b11cc70dcb644f2bd08abdd633349c, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1235160505
 Prefab:
   m_ObjectHideFlags: 0
@@ -32724,7 +32641,7 @@ GameObject:
   - component: {fileID: 1245188520}
   m_Layer: 11
   m_Name: spritesheet_tiles_272 (4)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33081,6 +32998,18 @@ Transform:
   m_PrefabParentObject: {fileID: 4280469098451944, guid: 70113e5050d3ba24e974fa0771cbe817,
     type: 2}
   m_PrefabInternal: {fileID: 23464572}
+--- !u!114 &1251044829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ed3478be286490a81b0659e765a692, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
 --- !u!4 &1252047764 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4620424942160510, guid: f47f48b0d59788d4aa44e14024c867ad,
@@ -33599,6 +33528,19 @@ Transform:
   m_PrefabParentObject: {fileID: 4280469098451944, guid: 70113e5050d3ba24e974fa0771cbe817,
     type: 2}
   m_PrefabInternal: {fileID: 1920220153}
+--- !u!114 &1276013814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68415b644f464677987b1385b028fb1, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1 &1276064592
 GameObject:
   m_ObjectHideFlags: 0
@@ -34097,7 +34039,7 @@ GameObject:
   - component: {fileID: 1290083793}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (7)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34182,19 +34124,6 @@ Transform:
   m_Father: {fileID: 577397403}
   m_RootOrder: 109
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1292459860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68415b644f464677987b1385b028fb1, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1 &1295632263
 GameObject:
   m_ObjectHideFlags: 0
@@ -34207,7 +34136,7 @@ GameObject:
   - component: {fileID: 1295632264}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (5)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34406,7 +34335,7 @@ GameObject:
   - component: {fileID: 1303436791}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (3)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34808,6 +34737,18 @@ Transform:
   m_PrefabParentObject: {fileID: 4280469098451944, guid: 70113e5050d3ba24e974fa0771cbe817,
     type: 2}
   m_PrefabInternal: {fileID: 1050584099}
+--- !u!114 &1316440912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ed3478be286490a81b0659e765a692, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 556724337}
 --- !u!1 &1322159224
 GameObject:
   m_ObjectHideFlags: 0
@@ -35826,7 +35767,7 @@ GameObject:
   - component: {fileID: 1367610591}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (3)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36834,6 +36775,56 @@ Transform:
   m_Father: {fileID: 577397403}
   m_RootOrder: 168
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1385429406
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935585384950878, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255268143267234, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_Name
+      value: AI (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1385694583
 Prefab:
   m_ObjectHideFlags: 0
@@ -37475,7 +37466,7 @@ GameObject:
   - component: {fileID: 1402992114}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (6)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37628,7 +37619,7 @@ GameObject:
   - component: {fileID: 1407470380}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (14)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37725,7 +37716,7 @@ GameObject:
   - component: {fileID: 1409943894}
   m_Layer: 11
   m_Name: spritesheet_tiles_272 (3)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38539,7 +38530,7 @@ GameObject:
   - component: {fileID: 1441604215}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (11)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38707,7 +38698,7 @@ GameObject:
   - component: {fileID: 1441943252}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (21)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39819,7 +39810,7 @@ GameObject:
   - component: {fileID: 1489030813}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (21)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40144,7 +40135,7 @@ GameObject:
   - component: {fileID: 1502765701}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (18)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41170,7 +41161,7 @@ GameObject:
   - component: {fileID: 1536844775}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (5)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41496,7 +41487,7 @@ GameObject:
   - component: {fileID: 1554934921}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (6)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41710,7 +41701,7 @@ GameObject:
   - component: {fileID: 1559797100}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41878,7 +41869,7 @@ GameObject:
   - component: {fileID: 1567121012}
   m_Layer: 10
   m_Name: PlantPot (5)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41956,18 +41947,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &1568804922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ed3478be286490a81b0659e765a692, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1 &1568840017
 GameObject:
   m_ObjectHideFlags: 0
@@ -42606,7 +42585,7 @@ GameObject:
   - component: {fileID: 1596057571}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (28)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44749,7 +44728,7 @@ GameObject:
   - component: {fileID: 1697411212}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (22)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45183,6 +45162,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
     type: 2}
   m_PrefabInternal: {fileID: 798305836}
+--- !u!114 &1714896564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63da64c212b0a40539ee828ecacaa870, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 119
+    index: 1
+    value: 1
+  - key: 97
+    index: 0
+    value: -1
+  - key: 115
+    index: 1
+    value: -1
+  - key: 100
+    index: 0
+    value: 1
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 342954914}
 --- !u!1001 &1715979743
 Prefab:
   m_ObjectHideFlags: 0
@@ -45589,7 +45596,7 @@ GameObject:
   - component: {fileID: 1744096048}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (11)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46092,7 +46099,7 @@ GameObject:
   - component: {fileID: 1763185146}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46265,7 +46272,7 @@ GameObject:
   - component: {fileID: 1769222639}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (24)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46489,7 +46496,7 @@ GameObject:
   - component: {fileID: 1771256282}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (16)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46994,7 +47001,7 @@ GameObject:
   - component: {fileID: 1788060252}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (10)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47162,7 +47169,7 @@ GameObject:
   - component: {fileID: 1791710370}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (24)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47689,7 +47696,7 @@ GameObject:
   - component: {fileID: 1816447818}
   m_Layer: 11
   m_Name: spritesheet_tiles_104 (11)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47979,7 +47986,7 @@ GameObject:
   - component: {fileID: 1828499859}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (13)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48206,19 +48213,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4280469098451944, guid: 70113e5050d3ba24e974fa0771cbe817,
     type: 2}
   m_PrefabInternal: {fileID: 1641335324}
---- !u!114 &1844297532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68415b644f464677987b1385b028fb1, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1001 &1846165524
 Prefab:
   m_ObjectHideFlags: 0
@@ -48550,7 +48544,7 @@ GameObject:
   - component: {fileID: 1872051291}
   m_Layer: 11
   m_Name: spritesheet_tiles_104
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48780,6 +48774,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
     type: 2}
   m_PrefabInternal: {fileID: 770106310}
+--- !u!114 &1879188993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63da64c212b0a40539ee828ecacaa870, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 119
+    index: 1
+    value: 1
+  - key: 97
+    index: 0
+    value: -1
+  - key: 115
+    index: 1
+    value: -1
+  - key: 100
+    index: 0
+    value: 1
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 556724337}
 --- !u!1001 &1879799634
 Prefab:
   m_ObjectHideFlags: 0
@@ -50105,7 +50127,7 @@ GameObject:
   - component: {fileID: 1926777964}
   m_Layer: 11
   m_Name: spritesheet_tiles_110 (1)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50370,11 +50392,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.4
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.3
+      value: -3.07
       objectReference: {fileID: 0}
     - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -50399,6 +50421,10 @@ Prefab:
     - target: {fileID: 4356955891485478, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935585384950878, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
+      propertyPath: m_TagString
+      value: AI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e554326dd0ce71340b48f120fe70582c, type: 2}
@@ -51161,7 +51187,7 @@ GameObject:
   - component: {fileID: 1960159744}
   m_Layer: 11
   m_Name: spritesheet_tiles_304 (6)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51446,7 +51472,7 @@ GameObject:
   - component: {fileID: 1968908756}
   m_Layer: 11
   m_Name: spritesheet_tiles_106 (8)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51996,23 +52022,6 @@ Transform:
   m_Father: {fileID: 577397403}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1985602106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1893181909777776, guid: 79b11cc70dcb644f2bd08abdd633349c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1232879877}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2002537578}
-  - component: {fileID: 2002537579}
-  m_Layer: 0
-  m_Name: TeacherBrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &1986011306
 Prefab:
   m_ObjectHideFlags: 0
@@ -52227,51 +52236,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 820ad81efe9692b41876b969f6c6f6cd, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &2002537578
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4275658727727048, guid: 79b11cc70dcb644f2bd08abdd633349c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1232879877}
-  m_GameObject: {fileID: 1985602106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 342554503}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2002537579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114475099577696858, guid: 79b11cc70dcb644f2bd08abdd633349c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1232879877}
-  m_GameObject: {fileID: 1985602106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14a4cc480b15448d9bd2926551c0f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brainParameters:
-    vectorObservationSize: 1
-    numStackedVectorObservations: 3
-    vectorActionSize: 4
-    cameraResolutions: []
-    vectorActionDescriptions:
-    - 
-    - 
-    - 
-    - 
-    vectorActionSpaceType: 1
-    vectorObservationSpaceType: 1
-  brainType: 0
-  CoreBrains:
-  - {fileID: 422954344}
-  - {fileID: 1844297532}
-  - {fileID: 1568804922}
-  - {fileID: 615323207}
-  instanceID: 15516
 --- !u!1001 &2004394604
 Prefab:
   m_ObjectHideFlags: 0
@@ -52465,34 +52429,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4854255036669922, guid: 820ad81efe9692b41876b969f6c6f6cd,
     type: 2}
   m_PrefabInternal: {fileID: 789632701}
---- !u!114 &2009206847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63da64c212b0a40539ee828ecacaa870, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 100
-    index: 0
-    value: 1
-  - key: 119
-    index: 1
-    value: 1
-  - key: 97
-    index: 0
-    value: -1
-  - key: 115
-    index: 1
-    value: -1
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 2002537579}
 --- !u!1 &2009355972
 GameObject:
   m_ObjectHideFlags: 0
@@ -53820,7 +53756,7 @@ GameObject:
   - component: {fileID: 2054726002}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (2)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54022,6 +53958,19 @@ Transform:
   m_Father: {fileID: 398645865}
   m_RootOrder: 149
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2059914847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68415b644f464677987b1385b028fb1, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1 &2061638118
 GameObject:
   m_ObjectHideFlags: 0
@@ -54658,29 +54607,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 820ad81efe9692b41876b969f6c6f6cd, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &2088357585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43644f2ee03d440d4b9591cf404aa2b4, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  VectorObservationPlacholderName: vector_observation
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
 --- !u!1 &2090222532
 GameObject:
   m_ObjectHideFlags: 0
@@ -54693,7 +54619,7 @@ GameObject:
   - component: {fileID: 2090222533}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (22)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55173,7 +55099,7 @@ GameObject:
   - component: {fileID: 2097463223}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (31)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55503,7 +55429,7 @@ GameObject:
   - component: {fileID: 2119566071}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (9)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55793,7 +55719,7 @@ GameObject:
   - component: {fileID: 2129672992}
   m_Layer: 11
   m_Name: spritesheet_tiles_329 (12)
-  m_TagString: Untagged
+  m_TagString: Unpassable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

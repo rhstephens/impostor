@@ -23,7 +23,10 @@ public class RayPerception2D : MonoBehaviour {
     /// <param name="detectableObjects">List of tags which correspond to object types agent can see</param>
     public List<float> Perceive(float rayDistance, float[] rayAngles, string[] detectableObjects) {
         perceptionBuffer.Clear();
-        int ignoreMask = ~(1 << LayerMask.NameToLayer("Ground"));
+
+        // Ignore Raycast and Ground layers
+        int ignoreMask = ~((1 << LayerMask.NameToLayer("Ground")) | 1 << LayerMask.NameToLayer("Ignore Raycast"));
+
         // For each ray sublist stores categorial information on detected object
         // along with object distance.
         foreach (float angle in rayAngles) {
@@ -35,7 +38,6 @@ public class RayPerception2D : MonoBehaviour {
             float[] subList = new float[detectableObjects.Length + 2];
             // todo, make this raycast only hit certain objects
             hits = Physics2D.RaycastAll(transform.position, endPosition, rayDistance, ignoreMask);
-            Debug.Log(hits.Length);
             if (hits.Length > 1) {
                 RaycastHit2D hit = hits[1]; // The first Raycast hit is the own collider
                 for (int i = 0; i < detectableObjects.Length; i++) {
@@ -44,7 +46,6 @@ public class RayPerception2D : MonoBehaviour {
                                 // We should consider AI as a Player
                         subList[i] = 1;
                         subList[detectableObjects.Length + 1] = hit.distance / rayDistance;
-                        Debug.Log(hit.collider.gameObject.name);
                         break;
                     }
                 }

@@ -18,6 +18,9 @@ public class ImpostorAgent : Agent {
         base.InitializeAgent();
         con = GetComponent<PlayerController>();
         GameObject studentObj = GameObject.Find("StudentBrain");
+        if (gameObject.tag == "Player") {
+            studentObj = GameObject.Find("TeacherBrain");
+        }
         if (studentObj != null) {
             studentBrain = studentObj.GetComponent<Brain>();
             GiveBrain(studentBrain);
@@ -46,8 +49,7 @@ public class ImpostorAgent : Agent {
     // These numbers are added to the Observations and used by the Brain to make a Decision
     public override void CollectObservations() {
         float rayDistance = 50f;
-        // float[] rayAngles = { 20f, 70f, 90f, 110f, 160f, 45f, 135f, -20f, -70f, -90f, -110f, -160f, -45f, -135f };
-        float[] rayAngles = { 90f };
+        float[] rayAngles = { 20f, 70f, 90f, 110f, 160f, 45f, 135f, -20f, -70f, -90f, -110f, -160f, -45f, -135f };
         string[] detectableObjects = { "Player", "Unpassable" };
         AddVectorObs(rayComponent.Perceive(10f, rayAngles, detectableObjects));
     }

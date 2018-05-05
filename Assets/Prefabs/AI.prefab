@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
   gunDrawn: 0
 --- !u!114 &114965333567875422
 MonoBehaviour:
