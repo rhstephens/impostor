@@ -164,14 +164,15 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  walkSpeed: 3
+  walkSpeed: 1.5
+  minTime: 0.45
 --- !u!114 &114721178783359772
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255268143267234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf0bde588c2d11746be4f45389de46c2, type: 3}
   m_Name: 

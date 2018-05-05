@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114608096964074110}
   - component: {fileID: 114993732564273840}
   - component: {fileID: 114712918294389386}
+  - component: {fileID: 114997943905162636}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -268,13 +269,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340431451758558}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee81d96baf01d1847ac7071a6f016d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 6
+  walkSpeed: 1.5
+  runSpeed: 3
   sinceMotion: 0
   sinceDirection: 0
   inMotion: 0
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340431451758558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9094564b318c442dca633d9707ac7de3, type: 3}
   m_Name: 
@@ -434,7 +435,20 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  walkSpeed: 3
+  walkSpeed: 1.5
+--- !u!114 &114997943905162636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340431451758558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac8e3fa2f3c346ac85dc45988b88af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordKey: 114
+  resetKey: 99
 --- !u!124 &124309894940375442
 Behaviour:
   m_ObjectHideFlags: 1
