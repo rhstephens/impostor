@@ -66,7 +66,7 @@ public class ImpostorAgent : Agent {
 
         // In order to prevent "spastic" movements, we need to hold the previously set direction for some amount of time
         //    before changing it. It works best if this "set amount of time" is randomly determined within an interval
-        if (counter >= minTime) {
+        if (counter >= minTime || gameObject.tag == "Player") { // Player tag is used for training
             direction.x = xDir;
             direction.y = yDir;
             counter = 0;

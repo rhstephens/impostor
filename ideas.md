@@ -51,6 +51,14 @@ Controls any live AI Agents to determine a prediction. Can control many Brains a
 #### Brains
 In Impostor, we can have many different Brain types to simulate different types of Player movement. For example, we can have one Brain imitate the behaviour of a player that tries to avoid other players as best it can. And another Brain to simulate a player that is aggressive and chases/follows players.
 
+##### List of trained Policies
+- Avoiding Players: Agents with this Brain will actively avoid approaching Players with some degree of ambiguity
+- Follow Players: Agents with this Brain will attempt to follow/approach opposing Players
+- Avoid Obstacles: A Policy to avoid unpassable obstacles.
+
+##### Heuristic Brains
+Sometimes, the kind of logic needed for a Policy can be best represented by heuristics. For example, the best way to have an Agent that is always moving in one direction or another, is to simply hard code some of their logic. Thankfully, we can simply integrate both Heuristic and Trained Brains together.
+
 #### Agents
 All agents will appear the same as real Players visually, but will have different policies trained into each of their brains. Technically, the Main character is also an Agent, although their Brain is always set to "Player"
 The ImpostorAgent GameObject will be responsible for collecting observations from the environment, as well as the corresponding actions for movement. Will have to refactor PlayerMotor logic into ImpostorAgent logic.
@@ -58,7 +66,6 @@ The ImpostorAgent GameObject will be responsible for collecting observations fro
 ###### Observations:
 - List of floats corresponding to what the agent "sees" around itself using raycasts.
 - These floats represent whether or not a ray "sees" a particular object type, and the relative distance to the detectable object.
--
 
 ## TODO:
 - [ ] Finish map
