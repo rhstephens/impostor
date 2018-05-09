@@ -163,7 +163,7 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  walkSpeed: 1.5
+  walkSpeed: 3
   minTime: 0.45
 --- !u!114 &114773294159105730
 MonoBehaviour:

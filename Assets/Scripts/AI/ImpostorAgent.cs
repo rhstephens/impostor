@@ -20,7 +20,7 @@ public class ImpostorAgent : Agent {
     public override void InitializeAgent() {
         base.InitializeAgent();
         con = GetComponent<PlayerController>();
-        GameObject studentObj = GameObject.Find("StudentBrain");
+        GameObject studentObj = GameObject.Find("AlwaysMoveBrain");
         if (gameObject.tag == "Player") {
             studentObj = GameObject.Find("TeacherBrain");
         }
