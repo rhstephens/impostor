@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerMotor : MonoBehaviour {
 
-    public float walkSpeed = 3f;
-    public float runSpeed = 6f;
+    public float walkSpeed = GameManager.WALK_SPEED;
+    public float runSpeed = GameManager.RUN_SPEED;
 
 	//TODO: Remove this once model has been trained successfully
 	FeatureExporter fe;

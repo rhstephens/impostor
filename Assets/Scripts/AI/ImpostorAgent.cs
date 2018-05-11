@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class ImpostorAgent : Agent {
 
-    public float walkSpeed = 1.5f;
+    float walkSpeed = GameManager.WALK_SPEED;
     public float minTime = 0.4f;
 
     Brain studentBrain;
@@ -20,7 +20,7 @@ public class ImpostorAgent : Agent {
     public override void InitializeAgent() {
         base.InitializeAgent();
         con = GetComponent<PlayerController>();
-        GameObject studentObj = GameObject.Find("AlwaysMoveBrain");
+        GameObject studentObj = GameManager.Instance.AssignBrain();
         if (gameObject.tag == "Player") {
             studentObj = GameObject.Find("TeacherBrain");
         }
@@ -40,12 +40,7 @@ public class ImpostorAgent : Agent {
         velocity.y = direction.y * walkSpeed;
 
         // Rotate and Move player accordingly
-        if (con.gunDrawn) {
-            Vector3 lookPos = GetComponentInChildren<Camera>().ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            con.Rotate(lookPos);
-        } else {
-            con.Rotate(velocity * Time.deltaTime);
-        }
+        con.Rotate(velocity * Time.deltaTime);
         con.Move(velocity * Time.deltaTime);
     }
 

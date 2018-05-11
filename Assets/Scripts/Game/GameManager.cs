@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -18,6 +17,9 @@ public class GameManager : Singleton<GameManager> {
 	Dictionary<int, GameObject> _obsList = new Dictionary<int, GameObject>();
 	AWSClient _client = null;
     int _playerId = -1;
+
+    public static float WALK_SPEED = 2f;
+    public static float RUN_SPEED = 4f;
 
 	public AWSClient Client {
 		get {
@@ -140,6 +142,13 @@ public class GameManager : Singleton<GameManager> {
 
     public GameObject GetLocalPlayer() {
         return FindPlayer(_playerId);
+    }
+
+    // Return a random brain for use.
+    public GameObject AssignBrain() {
+        GameObject academy = GameObject.Find("Academy");
+        Component[] brains = academy.GetComponentsInChildren(typeof(Brain));
+        return brains[UnityEngine.Random.Range(0, brains.Length)].gameObject;
     }
 
 	//////////////////////////////////////////////
