@@ -39,7 +39,7 @@ public struct resolution
     public int height;
     /**< \brief The height of the observation in pixels */
     public bool blackAndWhite;
-    /**< \brief If true, the image will be in black and white. 
+    /**< \brief If true, the image will be in black and white.
      * If false, it will be in colors RGB */
 }
 
@@ -50,7 +50,7 @@ public struct resolution
 public class BrainParameters
 {
     public int vectorObservationSize = 1;
-    /**< \brief If continuous : The length of the float vector that represents 
+    /**< \brief If continuous : The length of the float vector that represents
      * the state
      * <br> If discrete : The number of possible values the state can take*/
 
@@ -78,8 +78,8 @@ public class BrainParameters
 [HelpURL("https://github.com/Unity-Technologies/ml-agents/blob/master/" +
          "docs/Learning-Environment-Design-Brains.md")]
 /**
- * Contains all high-level Brain logic. 
- * Add this component to an empty GameObject in your scene and drag this 
+ * Contains all high-level Brain logic.
+ * Add this component to an empty GameObject in your scene and drag this
  * GameObject into your Academy to make it a child in the hierarchy.
  * Contains a set of CoreBrains, which each correspond to a different method
  * for deciding actions.
@@ -96,7 +96,7 @@ public class Brain : MonoBehaviour
     public BrainParameters brainParameters = new BrainParameters();
 
 
-    /**<  \brief Defines what is the type of the brain : 
+    /**<  \brief Defines what is the type of the brain :
      * External / Internal / Player / Heuristic*/
     [Tooltip("Describes how the Brain will decide actions.")]
     public BrainType brainType;
@@ -116,13 +116,13 @@ public class Brain : MonoBehaviour
     private int instanceID;
 
     /// Ensures the brain has an up to date array of coreBrains
-    /** Is called when the inspector is modified and into InitializeBrain. 
-     * If the brain gameObject was just created, it generates a list of 
+    /** Is called when the inspector is modified and into InitializeBrain.
+     * If the brain gameObject was just created, it generates a list of
      * coreBrains (one for each brainType) */
     public void UpdateCoreBrains()
     {
 
-        // If CoreBrains is null, this means the Brain object was just 
+        // If CoreBrains is null, this means the Brain object was just
         // instanciated and we create instances of each CoreBrain
         if (CoreBrains == null)
         {
@@ -151,7 +151,7 @@ public class Brain : MonoBehaviour
             }
         }
 
-        // If the length of CoreBrains does not match the number of BrainTypes, 
+        // If the length of CoreBrains does not match the number of BrainTypes,
         // we increase the length of CoreBrains
         if (CoreBrains.Length < System.Enum.GetValues(typeof(BrainType)).Length)
         {
@@ -174,7 +174,7 @@ public class Brain : MonoBehaviour
             CoreBrains = new_CoreBrains;
         }
 
-        // If the stored instanceID does not match the current instanceID, 
+        // If the stored instanceID does not match the current instanceID,
         // this means that the Brain GameObject was duplicated, and
         // we need to make a new copy of each CoreBrain
         if (instanceID != gameObject.GetInstanceID())
